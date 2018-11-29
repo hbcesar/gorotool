@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iStar:IstarDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iStar="http://www.example.org/iStar" xsi:schemaLocation="http://www.example.org/iStar ../Metamodels/iStar.ecore">
+  <actors xsi:type="iStar:Role" name="Estudante">
+    <contains xsi:type="iStar:Goal" name="Apresentar Paper">
+      <children xsi:type="iStar:Goal" name="Viagem Reservada" refinementType="OR" orRefined="//@actors.0/@contains.0/@children.0/@children.0 //@actors.0/@contains.0/@children.0/@children.1">
+        <children xsi:type="iStar:Goal" name="Reservada pela Agencia">
+          <children xsi:type="iStar:Task" name="Reservar pela Agencia" contributesTo="//@actors.0/@contains.0/@children.0/@children.0/@children.1" helps="//@actors.0/@contains.0/@children.0/@children.0/@children.1"/>
+          <children xsi:type="iStar:Quality" name="Comodidade"/>
+        </children>
+        <children xsi:type="iStar:Goal" name="Reservada por conta própria" helps="//@actors.0/@contains.0/@children.0/@children.1/@children.0" andRefined="//@actors.0/@contains.0/@children.0/@children.1">
+          <children xsi:type="iStar:Quality" name="Rapidez na Reserva"/>
+          <children xsi:type="iStar:Quality" name="Economia"/>
+          <children xsi:type="iStar:Task" name="Reservar por Conta Propria" contributesTo="//@actors.0/@contains.0/@children.0/@children.1/@children.0 //@actors.0/@contains.0/@children.0/@children.1/@children.1" andRefined="//@actors.0/@contains.0/@children.0/@children.1/@children.2/@children.2 //@actors.0/@contains.0/@children.0/@children.1/@children.2/@children.3" resources="//@actors.0/@contains.0/@children.0/@children.1/@children.2/@children.0 //@actors.0/@contains.0/@children.0/@children.1/@children.2/@children.1">
+            <children xsi:type="iStar:Resource" name="Portais de Reserva Online" contributesTo="//@actors.0/@contains.0/@children.0/@children.1/@children.0" helps="//@actors.0/@contains.0/@children.0/@children.1/@children.0" neededBy="//@actors.0/@contains.0/@children.0/@children.1/@children.2"/>
+            <children xsi:type="iStar:Resource" name="Comparador de Preco Online" contributesTo="//@actors.0/@contains.0/@children.0/@children.1/@children.1" neededBy="//@actors.0/@contains.0/@children.0/@children.1/@children.2"/>
+            <children xsi:type="iStar:Task" name="Reservar Hospedagem"/>
+            <children xsi:type="iStar:Task" name="Reservar Passagens"/>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="iStar:Goal" name="Autorizacao Obtida" andRefined="//@actors.0/@contains.0/@children.1/@children.0 //@actors.0/@contains.0/@children.1/@children.1">
+        <children xsi:type="iStar:Goal" name="Requisicao Submetida">
+          <children xsi:type="iStar:Task" name="Submeter Requisição">
+            <children xsi:type="iStar:Task" name="Preparar Informações" refinementType="OR">
+              <children xsi:type="iStar:Task" name="Submeter Formulario em Papel"/>
+              <children xsi:type="iStar:Task" name="Submeter Formulario Online" helps="//@actors.0/@contains.0/@children.1/@children.0/@children.1" resources="//@actors.0/@contains.0/@children.1/@children.0/@children.0/@children.0/@children.1/@children.0">
+                <children xsi:type="iStar:Resource" name="Sistema de Submissao Online" helps="//@actors.0/@contains.0/@children.1/@children.0/@children.1" neededBy="//@actors.0/@contains.0/@children.1/@children.0/@children.0/@children.0/@children.1"/>
+              </children>
+            </children>
+          </children>
+          <children xsi:type="iStar:Quality" name="Minimizar erros"/>
+        </children>
+        <children xsi:type="iStar:Goal" name="Requisicao Aprovada" dependency="//@actors.1/@contains.1"/>
+      </children>
+    </contains>
+  </actors>
+  <actors xsi:type="iStar:Role" name="PPG">
+    <contains xsi:type="iStar:Goal" name="Publicar Papers"/>
+    <contains xsi:type="iStar:Task" name="Aprovar Requisição" dependeer="//@actors.0/@contains.0/@children.1/@children.1">
+      <children xsi:type="iStar:Task" name="Validar Requisição"/>
+      <children xsi:type="iStar:Task" name="Notificar Estudante"/>
+    </contains>
+  </actors>
+</iStar:IstarDiagram>

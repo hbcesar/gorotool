@@ -1,2 +1,2 @@
-# gorotool
-GORO Tool is a tool for converting GORE-based language models.
+# istart-to-archi-atl-transformation
+An Eclipse's ATL Plugin that transforms a Archimate model to a iStar model

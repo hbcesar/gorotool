@@ -1,0 +1,99 @@
+-- @path iStar=/iStar2Archi/Metamodels/iStar.ecore
+-- @path Archi=/iStar2Archi/Metamodels/archimate.ecore
+
+module iStar2Archi;
+create OUT : Archi from IN : iStar;
+
+-- Returns all actors direct goals (root goals)
+helper context iStar!IstarDiagram def : getElements () : OrderedSet(iStar!IntentionalElement) =
+	self.actors->iterate( element ; elements : OrderedSet(iStar!IntentionalElement) = 
+		OrderedSet{} | 
+			elements.append(element.contains)
+		)
+	;
+
+rule iStar2Archi {
+	from
+		istar : iStar!IstarDiagram
+	
+	to
+		archi : Archi!ArchimateDiagram (
+			activestructureelement <- istar.actors,
+			motivationelement <- istar.getElements(),
+			strategyelement <- iStar!Task.allInstances()->select(el | el.depender.oclIsUndefined())
+		)
+}
+
+rule Actor2Stakeholder { -- Also transforms: iStar!Agent and iStar!Role to Archi!Stakeholder
+	from 
+		istar : iStar!Actor
+	to
+		archi : Archi!Stakeholder (
+			name <- istar.name,
+			target <- istar.contains
+		)
+}
+
+rule Goal2Goal {
+	from
+		istar : iStar!Goal
+	to
+		archi : Archi!Goal (
+			name <- istar.name,
+			refinementType <- istar.refinementType,
+			children <- istar.children->select(el | not el.oclIsKindOf(iStar!Task)),
+			relationType <- 'association',
+			influences <- istar.helps,
+			negativeInfluence <- istar.hurts
+		)
+		
+}
+
+rule Task2BusinessProcess { 
+	from
+		istar : iStar!Task
+	to
+		archi : Archi!BusinessProcess (
+			name <- istar.name,
+			children <- istar.children,
+			influences <- istar.helps,
+			negativeInfluence <- istar.hurts,
+			realizes <- if istar.refImmediateComposite().oclIsKindOf(iStar!Goal)
+							then istar.parent
+							else OclUndefined
+							endif,
+			relationType <- if istar.children.first().oclIsTypeOf(iStar!Task) 
+								then 'composition' 
+								else 'association' 
+								endif,
+			refinementType <- istar.refinementType,
+			triggers <- if not istar.dependency.oclIsUndefined()
+								then istar.dependency.dependee
+								else OclUndefined
+								endif
+		)
+}
+
+rule Resource2Resources {
+	from
+		istar : iStar!Resource
+	to
+		archi : Archi!Resource (
+			name <- istar.name,
+			realizes <- if istar.refImmediateComposite().oclIsKindOf(iStar!Quality)
+							then istar.parent
+							else OclUndefined
+							endif
+		)
+}
+
+rule Quality2Principle {
+	from
+		istar : iStar!Quality
+	to
+		archi : Archi!Principle (
+			name <- istar.name,
+			influences <- istar.helps,
+			negativeInfluence <- istar.hurts
+		)
+}

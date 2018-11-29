@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iStar:IstarDiagram
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:iStar="http://www.example.org/iStar"
+    xsi:schemaLocation="http://www.example.org/iStar ../Metamodels/iStar.ecore">
+  <actors name="Meeting Scheduler">
+    <contains
+        xsi:type="iStar:Task"
+        name="Agendar Reunião"
+        andRefined="//@actors.0/@contains.0/@children.0 //@actors.0/@contains.0/@children.1 //@actors.0/@contains.0/@children.2">
+      <children
+          xsi:type="iStar:Task"
+          name="Obter Calendários">
+        <children
+            xsi:type="iStar:Resource"
+            name="Calendários de Participantes"/>
+      </children>
+      <children
+          xsi:type="iStar:Task"
+          name="Encontrar Horário Livre"/>
+      <children
+          xsi:type="iStar:Task"
+          name="Obter Confirmações"/>
+    </contains>
+  </actors>
+  <actors name="Meeting Initiator">
+    <contains
+        xsi:type="iStar:Goal"
+        name="Ter Reunião Organizada">
+      <children
+          xsi:type="iStar:Task"
+          name="Organizar Reunião"
+          refinementType="OR">
+        <children
+            xsi:type="iStar:Task"
+            name="Organizar Manualmente"
+            hurts="//@actors.1/@contains.0/@children.1 //@actors.1/@contains.0/@children.2"/>
+        <children
+            xsi:type="iStar:Task"
+            name="Organizar Pelo Agendador"
+            dependency="//@elements.0"
+            helps="//@actors.1/@contains.0/@children.1 //@actors.1/@contains.0/@children.2"/>
+      </children>
+      <children
+          xsi:type="iStar:Quality"
+          name="Organizar Rapidamente"/>
+      <children
+          xsi:type="iStar:Quality"
+          name="Organizar com Pouco Esforço"/>
+    </contains>
+  </actors>
+  <elements
+      xsi:type="iStar:Task"
+      name="Reunião a ser agendada"
+      dependee="//@actors.0/@contains.0"
+      depender="//@actors.1/@contains.0/@children.0/@children.1"/>
+</iStar:IstarDiagram>
