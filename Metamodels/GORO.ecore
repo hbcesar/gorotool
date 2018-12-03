@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="goro" nsURI="https://nemo.inf.ufes.br/GORO" nsPrefix="goro">
+  <eClassifiers xsi:type="ecore:EClass" name="Intentional Moment" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
+        upperBound="-1" eType="#//Agent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mental Moment" abstract="true" eSuperTypes="#//Intentional%20Moment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Belief" abstract="true" eSuperTypes="#//Mental%20Moment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Intention" abstract="true" eSuperTypes="#//Mental%20Moment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Desire" abstract="true" eSuperTypes="#//Mental%20Moment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Agent" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" abstract="true" eSuperTypes="#//Agent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Belief" eSuperTypes="#//Belief">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
+        upperBound="-1" eType="#//Requirements%20Stakeholder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirements Stakeholder" eSuperTypes="#//Stakeholder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interested in" lowerBound="1"
+        upperBound="-1" eType="#//Requirement%20Artifact"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Proposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//Proposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propositional content of"
+        lowerBound="1" upperBound="-1" eType="#//Desire"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propositional content of"
+        lowerBound="1" upperBound="-1" eType="#//Intention"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement Artifact">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="describes" lowerBound="1"
+        eType="#//Requirement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Intention" eSuperTypes="#//Intention">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
+        upperBound="-1" eType="#//Requirements%20Stakeholder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//Goal">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propositional content of"
+        lowerBound="1" upperBound="-1" eType="#//Stakeholder%20Intention"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propositional content of"
+        lowerBound="1" upperBound="-1" eType="#//Stakeholder%20Desire"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elicited from" lowerBound="1"
+        upperBound="-1" eType="#//Requirements%20Stakeholder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Desire" eSuperTypes="#//Desire">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
+        upperBound="-1" eType="#//Requirements%20Stakeholder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Non-functional Requirement" eSuperTypes="#//Requirement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Functional Requirement" eSuperTypes="#//Requirement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal-Based Requirement" eSuperTypes="#//Requirement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal-Based Requirement Artifact" eSuperTypes="#//Requirement%20Artifact">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="describes" lowerBound="1"
+        eType="#//Goal-Based%20Requirement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal-Based Requirement Specification"
+      eSuperTypes="#//Requirement%20Document">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gbra" upperBound="-1" eType="#//Goal-Based%20Requirement%20Artifact"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assumptions" upperBound="-1"
+        eType="#//Assumption%20Artifact" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement Document">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documents" lowerBound="1"
+        upperBound="-1" eType="#//Requirement%20Artifact" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirements Engineer" eSuperTypes="#//Stakeholder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsible for" upperBound="-1"
+        eType="#//Requirement%20Document"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assumption" eSuperTypes="#//Proposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propositional content of"
+        lowerBound="1" upperBound="-1" eType="#//Stakeholder%20Belief"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elicited from" lowerBound="1"
+        upperBound="-1" eType="#//Requirements%20Stakeholder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assumption Artifact">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="describes" lowerBound="1"
+        eType="#//Assumption"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hardgoal" eSuperTypes="#//Goal-Based%20Requirement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Softgoal" eSuperTypes="#//Goal-Based%20Requirement"/>
+</ecore:EPackage>
