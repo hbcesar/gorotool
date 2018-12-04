@@ -1,2 +1,2 @@
 # GORO Tool
-An Eclipse's ATL Plugin that converts iStar models to KAOS and Techne models.
+An Eclipse's ATL Plugin that converts iStar, KAOS and Techne models.
