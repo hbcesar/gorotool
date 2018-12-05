@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.example.org/archimate">
+  <archimate:ArchimateDiagram>
+    <activestructureelement xsi:type="archimate:Stakeholder" name="Meeting Scheduler" target="/0/@strategyelement.0"/>
+    <activestructureelement xsi:type="archimate:Stakeholder" name="Meeting Initiator" target="/0/@motivationelement.0"/>
+    <motivationelement xsi:type="archimate:Goal" name="Ter Reunião Organizada">
+      <children xsi:type="archimate:Principle" name="Organizar Rapidamente"/>
+      <children xsi:type="archimate:Principle" name="Organizar com Pouco Esforço"/>
+    </motivationelement>
+    <strategyelement xsi:type="archimate:BusinessProcess" name="Agendar Reunião" relationType="composition">
+      <children xsi:type="archimate:BusinessProcess" name="Obter Calendários">
+        <children xsi:type="archimate:Resource" name="Calendários de Participantes"/>
+      </children>
+      <children xsi:type="archimate:BusinessProcess" name="Encontrar Horário Livre"/>
+      <children xsi:type="archimate:BusinessProcess" name="Obter Confirmações"/>
+    </strategyelement>
+    <strategyelement xsi:type="archimate:BusinessProcess" name="Organizar Reunião" refinementType="OR" relationType="composition" realizes="/0/@motivationelement.0">
+      <children xsi:type="archimate:BusinessProcess" name="Organizar Manualmente" negativeInfluence="/0/@motivationelement.0/@children.0 /0/@motivationelement.0/@children.1"/>
+      <children xsi:type="archimate:BusinessProcess" name="Organizar Pelo Agendador" influences="/0/@motivationelement.0/@children.0 /0/@motivationelement.0/@children.1" triggers="/0/@strategyelement.0"/>
+    </strategyelement>
+  </archimate:ArchimateDiagram>
+  <archimate:BusinessProcess name="Reunião a ser agendada"/>
+</xmi:XMI>

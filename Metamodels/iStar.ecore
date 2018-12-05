@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="iStar" nsURI="https://nemo.inf.ufes.br/iStar" nsPrefix="istar">
-  <eClassifiers xsi:type="ecore:EClass" name="Intentional Element" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="iStarDiagram">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intentional elements" upperBound="-1"
+        eType="#//IntentionalElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//Actor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
+        eType="#//Dependency" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntentionalElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="intentionalelements" upperBound="-1"
-        eType="#//Intentional%20Element" containment="true"/>
+        eType="#//IntentionalElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="is-a" upperBound="-1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="participates-in" upperBound="-1"
         eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contribution" upperBound="-1"
         eType="#//Quality"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contribution type" eType="#//Contribution%20Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Actor"/>
   <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Actor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Quality" eSuperTypes="#//Intentional%20Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Quality" eSuperTypes="#//IntentionalElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="qualify-resource" upperBound="-1"
         eType="#//Resource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="qualify-goal-task" upperBound="-1"
-        eType="#//GoalTask%20Element"/>
+        eType="#//GoalTaskElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//Intentional%20Element"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GoalTask Element" abstract="true" eSuperTypes="#//Intentional%20Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//IntentionalElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GoalTaskElement" abstract="true" eSuperTypes="#//IntentionalElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="refinements" upperBound="-1"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="refinement-type" eType="#//Refinement%20Type"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//GoalTask%20Element"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//GoalTask%20Element">
+  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//GoalTaskElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//GoalTaskElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="needs" upperBound="-1"
         eType="#//Resource"/>
   </eClassifiers>
@@ -38,11 +49,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="depender" lowerBound="1"
         eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependum" lowerBound="1"
-        eType="#//Intentional%20Element"/>
+        eType="#//IntentionalElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependerElm" lowerBound="1"
-        eType="#//Intentional%20Element"/>
+        eType="#//IntentionalElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependeeElm" lowerBound="1"
-        eType="#//Intentional%20Element"/>
+        eType="#//IntentionalElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Contribution Type">
     <eLiterals name="make" literal="make"/>

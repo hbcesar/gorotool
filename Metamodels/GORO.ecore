@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="GORO" nsURI="https://nemo.inf.ufes.br/GORO" nsPrefix="goro">
+  <eClassifiers xsi:type="ecore:EClass" name="Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//Mental%20Moments/Goal-BasedRequirementArtifact" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assumptions" upperBound="-1"
+        eType="#//Mental%20Moments/Assumption%20Artifact" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholders" upperBound="-1"
+        eType="#//Mental%20Moments/Stakeholder" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" eType="#//Tasks%20and%20Relations/Task"/>
+  </eClassifiers>
   <eSubpackages name="Mental Moments" nsURI="https://nemo.inf.ufes.br/GORO/mental-moments"
       nsPrefix="mm">
-    <eClassifiers xsi:type="ecore:EClass" name="Intentional Moment" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="IntentionalMoment" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
           upperBound="-1" eType="#//Mental%20Moments/Agent"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Mental Moment" abstract="true" eSuperTypes="#//Mental%20Moments/Intentional%20Moment"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Belief" abstract="true" eSuperTypes="#//Mental%20Moments/Mental%20Moment"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Intention" abstract="true" eSuperTypes="#//Mental%20Moments/Mental%20Moment"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Desire" abstract="true" eSuperTypes="#//Mental%20Moments/Mental%20Moment"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Agent" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" abstract="true" eSuperTypes="#//Mental%20Moments/Agent"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Belief" eSuperTypes="#//Mental%20Moments/Belief">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
-          upperBound="-1" eType="#//Mental%20Moments/Requirements%20Stakeholder"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MentalMoment" abstract="true" eSuperTypes="#//Mental%20Moments/IntentionalMoment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Belief" abstract="true" eSuperTypes="#//Mental%20Moments/MentalMoment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Intention" abstract="true" eSuperTypes="#//Mental%20Moments/MentalMoment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Desire" abstract="true" eSuperTypes="#//Mental%20Moments/MentalMoment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Agent" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Requirements Stakeholder" eSuperTypes="#//Mental%20Moments/Stakeholder">
+    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder" abstract="true" eSuperTypes="#//Mental%20Moments/Agent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StakeholderBelief" eSuperTypes="#//Mental%20Moments/Belief">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
+          upperBound="-1" eType="#//Mental%20Moments/RequirementsStakeholder"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RequirementsStakeholder" eSuperTypes="#//Mental%20Moments/Stakeholder">
       <eStructuralFeatures xsi:type="ecore:EReference" name="interested in" lowerBound="1"
           upperBound="-1" eType="#//Mental%20Moments/Requirement%20Artifact"/>
     </eClassifiers>
@@ -32,115 +43,122 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="describes" lowerBound="1"
           eType="#//Mental%20Moments/Requirement"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Intention" eSuperTypes="#//Mental%20Moments/Intention">
+    <eClassifiers xsi:type="ecore:EClass" name="StakeholderIntention" eSuperTypes="#//Mental%20Moments/Intention">
       <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
-          upperBound="-1" eType="#//Mental%20Moments/Requirements%20Stakeholder"/>
+          upperBound="-1" eType="#//Mental%20Moments/RequirementsStakeholder"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//Mental%20Moments/Goal">
       <eStructuralFeatures xsi:type="ecore:EReference" name="propositional content of"
-          lowerBound="1" upperBound="-1" eType="#//Mental%20Moments/Stakeholder%20Intention"/>
+          lowerBound="1" upperBound="-1" eType="#//Mental%20Moments/StakeholderIntention"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propositional content of"
-          lowerBound="1" upperBound="-1" eType="#//Mental%20Moments/Stakeholder%20Desire"/>
+          lowerBound="1" upperBound="-1" eType="#//Mental%20Moments/StakeholderDesire"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elicited from" lowerBound="1"
-          upperBound="-1" eType="#//Mental%20Moments/Requirements%20Stakeholder"/>
+          upperBound="-1" eType="#//Mental%20Moments/RequirementsStakeholder"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Stakeholder Desire" eSuperTypes="#//Mental%20Moments/Desire">
+    <eClassifiers xsi:type="ecore:EClass" name="StakeholderDesire" eSuperTypes="#//Mental%20Moments/Desire">
       <eStructuralFeatures xsi:type="ecore:EReference" name="inheres in" lowerBound="1"
-          upperBound="-1" eType="#//Mental%20Moments/Requirements%20Stakeholder"/>
+          upperBound="-1" eType="#//Mental%20Moments/RequirementsStakeholder"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Non-functional Requirement" eSuperTypes="#//Mental%20Moments/Requirement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Functional Requirement" eSuperTypes="#//Mental%20Moments/Requirement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Goal-Based Requirement" eSuperTypes="#//Mental%20Moments/Requirement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Goal-Based Requirement Artifact" eSuperTypes="#//Mental%20Moments/Requirement%20Artifact">
+    <eClassifiers xsi:type="ecore:EClass" name="Non-functionalRequirement" eSuperTypes="#//Mental%20Moments/Requirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FunctionalRequirement" eSuperTypes="#//Mental%20Moments/Requirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Goal-BasedRequirement" eSuperTypes="#//Mental%20Moments/Requirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Goal-BasedRequirementArtifact" eSuperTypes="#//Mental%20Moments/Requirement%20Artifact">
       <eStructuralFeatures xsi:type="ecore:EReference" name="describes" lowerBound="1"
-          eType="#//Mental%20Moments/Goal-Based%20Requirement"/>
+          eType="#//Mental%20Moments/Goal-BasedRequirement"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Goal-Based Requirement Specification"
-        eSuperTypes="#//Mental%20Moments/Requirement%20Document">
+    <eClassifiers xsi:type="ecore:EClass" name="Goal-BasedRequirementSpecification"
+        eSuperTypes="#//Mental%20Moments/RequirementDocument">
       <eStructuralFeatures xsi:type="ecore:EReference" name="gbra" upperBound="-1"
-          eType="#//Mental%20Moments/Goal-Based%20Requirement%20Artifact" containment="true"/>
+          eType="#//Mental%20Moments/Goal-BasedRequirementArtifact" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assumptions" upperBound="-1"
           eType="#//Mental%20Moments/Assumption%20Artifact" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Requirement Document">
+    <eClassifiers xsi:type="ecore:EClass" name="RequirementDocument">
       <eStructuralFeatures xsi:type="ecore:EReference" name="documents" lowerBound="1"
           upperBound="-1" eType="#//Mental%20Moments/Requirement%20Artifact" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Requirements Engineer" eSuperTypes="#//Mental%20Moments/Stakeholder">
+    <eClassifiers xsi:type="ecore:EClass" name="RequirementsEngineer" eSuperTypes="#//Mental%20Moments/Stakeholder">
       <eStructuralFeatures xsi:type="ecore:EReference" name="responsible for" upperBound="-1"
-          eType="#//Mental%20Moments/Requirement%20Document"/>
+          eType="#//Mental%20Moments/RequirementDocument"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Assumption" eSuperTypes="#//Mental%20Moments/Proposition">
       <eStructuralFeatures xsi:type="ecore:EReference" name="propositional content of"
-          lowerBound="1" upperBound="-1" eType="#//Mental%20Moments/Stakeholder%20Belief"/>
+          lowerBound="1" upperBound="-1" eType="#//Mental%20Moments/StakeholderBelief"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elicited from" lowerBound="1"
-          upperBound="-1" eType="#//Mental%20Moments/Requirements%20Stakeholder"/>
+          upperBound="-1" eType="#//Mental%20Moments/RequirementsStakeholder"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Assumption Artifact">
       <eStructuralFeatures xsi:type="ecore:EReference" name="describes" lowerBound="1"
           eType="#//Mental%20Moments/Assumption"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Hardgoal" eSuperTypes="#//Mental%20Moments/Goal-Based%20Requirement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Softgoal" eSuperTypes="#//Mental%20Moments/Goal-Based%20Requirement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Non-functional Requirement Artifact"
+    <eClassifiers xsi:type="ecore:EClass" name="Hardgoal" eSuperTypes="#//Mental%20Moments/Goal-BasedRequirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Softgoal" eSuperTypes="#//Mental%20Moments/Goal-BasedRequirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Non-functionalRequirementArtifact"
         eSuperTypes="#//Mental%20Moments/Requirement%20Artifact"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Functional Requirement Artifact" eSuperTypes="#//Mental%20Moments/Requirement%20Artifact"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Non-functional Goal-Based Requirement Artifact"
-        eSuperTypes="#//Mental%20Moments/Non-functional%20Requirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FunctionalRequirementArtifact" eSuperTypes="#//Mental%20Moments/Requirement%20Artifact"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Non-functionalGoal-BasedRequirementArtifact"
+        eSuperTypes="#//Mental%20Moments/Non-functionalRequirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Functional Hardgoal Requirement Artifact"
+        eSuperTypes="#//Mental%20Moments/Hardgoal #//Mental%20Moments/FunctionalRequirementArtifact"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Non-function Softgoal Requirement Artifact"
+        eSuperTypes="#//Mental%20Moments/Non-functionalRequirementArtifact #//Mental%20Moments/Softgoal"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Non-functional Hardgoal Requirement Artifact"
+        eSuperTypes="#//Mental%20Moments/Hardgoal #//Mental%20Moments/Non-functionalRequirementArtifact"/>
   </eSubpackages>
   <eSubpackages name="Tasks and Relations" nsURI="https://nemo.inf.ufes.br/GORO/tasks"
       nsPrefix="tasks-relations">
-    <eClassifiers xsi:type="ecore:EClass" name="Action Universal (Plan)" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Tasks%20and%20Relations/Action%20Universal%20(Plan)">
+    <eClassifiers xsi:type="ecore:EClass" name="ActionUniversalPlan" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Tasks%20and%20Relations/ActionUniversalPlan">
       <eStructuralFeatures xsi:type="ecore:EReference" name="intends to operationalize"
-          lowerBound="1" upperBound="-1" eType="#//Mental%20Moments/Goal-Based%20Requirement%20Artifact"/>
+          lowerBound="1" upperBound="-1" eType="#//Mental%20Moments/Goal-BasedRequirementArtifact"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Complex Task" eSuperTypes="#//Tasks%20and%20Relations/Task">
+    <eClassifiers xsi:type="ecore:EClass" name="ComplexTask" eSuperTypes="#//Tasks%20and%20Relations/Task">
       <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" lowerBound="2"
           upperBound="-1" eType="#//Tasks%20and%20Relations/Task" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Atomic Task" eSuperTypes="#//Tasks%20and%20Relations/Task"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Atomic Goal-Based Requirement Artiact"
-        eSuperTypes="#//Mental%20Moments/Goal-Based%20Requirement%20Artifact"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Complex Goal-Based Requirement Artifact"
-        eSuperTypes="#//Mental%20Moments/Goal-Based%20Requirement%20Artifact">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="goals" eType="#//Mental%20Moments/Goal-Based%20Requirement%20Artifact"
+    <eClassifiers xsi:type="ecore:EClass" name="AtomicTask" eSuperTypes="#//Tasks%20and%20Relations/Task"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AtomicGoal-BasedRequirementArtiact"
+        eSuperTypes="#//Mental%20Moments/Goal-BasedRequirementArtifact"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ComplexGoal-BasedRequirementArtifact"
+        eSuperTypes="#//Mental%20Moments/Goal-BasedRequirementArtifact">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refinements" lowerBound="1"
+          upperBound="-1" eType="#//Mental%20Moments/Goal-BasedRequirementArtifact"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="And Complex Goal-Based Requirement Artifact"
-        eSuperTypes="#//Tasks%20and%20Relations/Complex%20Goal-Based%20Requirement%20Artifact"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Or Complex Goal-Based Requirement Artifact"
-        eSuperTypes="#//Tasks%20and%20Relations/Complex%20Goal-Based%20Requirement%20Artifact"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AndComplexGoal-BasedRequirementArtifact"
+        eSuperTypes="#//Tasks%20and%20Relations/ComplexGoal-BasedRequirementArtifact"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OrComplexGoal-BasedRequirementArtifact"
+        eSuperTypes="#//Tasks%20and%20Relations/ComplexGoal-BasedRequirementArtifact"/>
   </eSubpackages>
   <eSubpackages name="Obstacles" nsURI="https://nemo.inf.ufes.br/GORO/obstacles" nsPrefix="obstacle">
     <eClassifiers xsi:type="ecore:EClass" name="Situation"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Threatening Situation" eSuperTypes="#//Obstacles/Situation">
+    <eClassifiers xsi:type="ecore:EClass" name="ThreateningSituation" eSuperTypes="#//Obstacles/Situation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="satisfies" upperBound="-1"
-          eType="#//Obstacles/Threatening%20Proposition"/>
+          eType="#//Obstacles/ThreateningProposition"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Threatening Proposition" eSuperTypes="#//Mental%20Moments/Proposition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ThreateningProposition" eSuperTypes="#//Mental%20Moments/Proposition"/>
     <eClassifiers xsi:type="ecore:EClass" name="Obstacle"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Mitigation Task" eSuperTypes="#//Tasks%20and%20Relations/Task">
+    <eClassifiers xsi:type="ecore:EClass" name="MitigationTask" eSuperTypes="#//Tasks%20and%20Relations/Task">
       <eStructuralFeatures xsi:type="ecore:EReference" name="mitigates" lowerBound="1"
           upperBound="-1" eType="#//Obstacles/Obstacle"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Contingency Task" eSuperTypes="#//Tasks%20and%20Relations/Task">
+    <eClassifiers xsi:type="ecore:EClass" name="ContingencyTask" eSuperTypes="#//Tasks%20and%20Relations/Task">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contingencies" lowerBound="1"
           upperBound="-1" eType="#//Obstacles/Obstacle"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Complex Obstacle" eSuperTypes="#//Obstacles/Obstacle">
+    <eClassifiers xsi:type="ecore:EClass" name="ComplexObstacle" eSuperTypes="#//Obstacles/Obstacle">
       <eStructuralFeatures xsi:type="ecore:EReference" name="obstacles" lowerBound="2"
           upperBound="-1" eType="#//Obstacles/Obstacle" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Atomic Obstacle" eSuperTypes="#//Obstacles/Obstacle"/>
-    <eClassifiers xsi:type="ecore:EClass" name="And Complex Obstacle" eSuperTypes="#//Obstacles/Complex%20Obstacle"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Or Complex Obstacle" eSuperTypes="#//Obstacles/Complex%20Obstacle"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AtomicObstacle" eSuperTypes="#//Obstacles/Obstacle"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AndComplexObstacle" eSuperTypes="#//Obstacles/ComplexObstacle"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OrComplexObstacle" eSuperTypes="#//Obstacles/ComplexObstacle"/>
     <eClassifiers xsi:type="ecore:EClass" name="Contribution">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Obstacles/Contribution%20Type"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="intensity" eType="#//Obstacles/Contribution%20Type"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="goal-mediation" lowerBound="1"
-          eType="#//Mental%20Moments/Goal-Based%20Requirement%20Artifact"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nfr-mediation" eType="#//Mental%20Moments/Non-functional%20Goal-Based%20Requirement%20Artifact"/>
+          eType="#//Mental%20Moments/Goal-BasedRequirementArtifact"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nfr-mediation" eType="#//Mental%20Moments/Non-functionalGoal-BasedRequirementArtifact"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Contribution Type">
       <eLiterals name="positive" value="1"/>

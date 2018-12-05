@@ -1,0 +1,35 @@
+-- @path iStar=/GOROTool/Metamodels/iStar.ecore
+-- @path GORO=/GOROTool/Metamodels/GORO.ecore
+
+module iStar2GORO;
+
+create OUT : GORO from IN : iStar;
+
+rule iStar2GORO {
+	from
+		istar : iStar!iStarDiagram
+	
+	to
+		goro : GORO!Container (
+			stakeholders <- istar.actors
+		)
+}
+
+rule Actor2Stakeholder {
+	from
+		istar : iStar!Actor
+	
+	to
+		goro : GORO!RequirementsStakeholder (
+			name <- istar.name
+		)
+}
+
+rule Goal2Goal {
+	from
+		istar : iStar!Goal (istar.refinements.oclIsUndefined())
+	to
+		goro : GORO!Goal-BasedRequirementArtifact (              //Remover todos os tracinhos
+			name <- istar.name
+		)
+}

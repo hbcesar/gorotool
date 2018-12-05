@@ -1,5 +1,5 @@
--- @path iStar=/iStar2Archi/Metamodels/iStar.ecore
--- @path Archi=/iStar2Archi/Metamodels/archimate.ecore
+-- @path iStar=/GOROTool/Metamodels/iStar.ecore
+-- @path Archi=/GOROTool/Metamodels/archimate.ecore
 
 module iStar2Archi;
 create OUT : Archi from IN : iStar;
