@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="KAOS" nsURI="http://nemo.inf.ufes.br/iStar" nsPrefix="kaos">
+  <eClassifiers xsi:type="ecore:EClass" name="KAOSContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goals" upperBound="-1"
+        eType="#//Goal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="agents" upperBound="-1"
+        eType="#//Agent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainProperties" upperBound="-1"
+        eType="#//DomainProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obstacles" upperBound="-1"
+        eType="#//Obstacle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+        eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expectations" upperBound="-1"
+        eType="#//Expectation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KAOSElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Agent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responsabilities" upperBound="-1"
+        eType="#//KAOSElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//KAOSElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinements" upperBound="-1"
+        eType="#//Goal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operationalizations" upperBound="-1"
+        eType="#//Operation" containment="true" eOpposite="#//Operation/operationalizedGoal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conflicts" upperBound="-1"
+        eType="#//Goal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refinementType" eType="#//refinementType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//KAOSElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinements" upperBound="-1"
+        eType="#//Requirement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operationalizations" upperBound="-1"
+        eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conflicts" upperBound="-1"
+        eType="#//Requirement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refinementType" eType="#//refinementType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainProperty" eSuperTypes="#//KAOSElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Goal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expectation" eSuperTypes="#//KAOSElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinements" upperBound="-1"
+        eType="#//Expectation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refinementType" eType="#//refinementType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//KAOSElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Operation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operationalizedGoal" eType="#//Goal"
+        eOpposite="#//Goal/operationalizations"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refinementType" eType="#//refinementType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Obstacle" eSuperTypes="#//KAOSElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinements" upperBound="-1"
+        eType="#//Obstacle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refinementType" eType="#//refinementType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="refinementType">
+    <eLiterals name="AND" value="1"/>
+    <eLiterals name="OR" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

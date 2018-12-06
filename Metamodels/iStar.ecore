@@ -6,6 +6,8 @@
         eType="#//Actor" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
         eType="#//Dependency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
+        eType="#//Contribution" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntentionalElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -21,9 +23,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="isa" upperBound="-1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="participatesin" upperBound="-1"
         eType="#//Actor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contribution" upperBound="-1"
-        eType="#//Quality"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" eType="#//ContributionType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Agent" eSuperTypes="#//Actor"/>
@@ -56,7 +55,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ContributionType">
-    <eLiterals name="none" literal="none"/>
     <eLiterals name="help" value="1" literal="help"/>
     <eLiterals name="hurt" value="2" literal="hurt"/>
     <eLiterals name="break" value="3" literal="break"/>
@@ -65,5 +63,10 @@
   <eClassifiers xsi:type="ecore:EEnum" name="RefinementType">
     <eLiterals name="AND"/>
     <eLiterals name="OR" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//IntentionalElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Quality"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ContributionType"/>
   </eClassifiers>
 </ecore:EPackage>

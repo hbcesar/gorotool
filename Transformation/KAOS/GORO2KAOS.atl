@@ -1,0 +1,86 @@
+-- @path KAOS=/GOROTool/Metamodels/KAOS.ecore
+-- @path GORO=/GOROTool/Metamodels/GORO.ecore
+
+module GORO2KAOS;
+
+create OUT : KAOS from IN : GORO;
+
+rule Container {
+	from
+		goro : GORO!GOROContainer
+	to
+		kaos : KAOS!KAOSContainer (
+			goals <- goro.GOREElements->select(el | el.oclIsKindOf(GORO!FunctionalHardgoal)),
+			expectations <- goro.GOREElements->select(el | el.oclIsKindOf(GORO!NonFunctionalSoftgoal)),
+			agents <- goro.stakeholders,
+			domainProperties <- goro.GOREElements->select(el | el.oclIsKindOf(GORO!Assumption)),
+			obstacles <- goro.GOREElements->select(el | el.oclIsKindOf(GORO!Obstacle))
+		)
+}
+
+rule Stakeholder2Agent {
+	from
+		goro : GORO!Stakeholder
+	to
+		kaos : KAOS!Agent (
+			name <- goro.name,
+			responsabilities <- goro.interests
+		)
+}
+
+rule Goal2Goal {
+	from
+		goro : GORO!FunctionalHardgoal
+	to
+		kaos : KAOS!Goal (
+			name <- goro.name,
+			refinements <- goro.refinements,
+			refinementType <- goro.refinementType,
+			conflicts <- goro.conflictsWith->select(el | el.oclIsKindOf(GORO!FunctionalHardgoal))
+		)
+}
+
+rule Assumption2DomainProperty {
+	from
+		goro : GORO!Assumption
+	to
+		kaos : KAOS!DomainProperty (
+			name <- goro.name,
+			target <- goro.target
+		)
+}
+
+rule Softgoal2Expectation {
+	from
+		goro : GORO!NonFunctionalSoftgoal
+	to
+		kaos : KAOS!Expectation (
+			name <- goro.name,
+			refinements <- goro.refinements,
+			refinementType <- goro.refinementType
+		)
+}
+
+rule Task2Operation {
+	from
+		goro : GORO!Task
+	to
+		kaos : KAOS!Operation (
+			name <- goro.name,
+			components <- goro.components,
+			operationalizedGoal <- goro.operationalizationedGoal,
+			refinementType <- goro.refinementType
+		)
+}
+
+rule Obstacle2Obstacle {
+	from
+		goro : GORO!Obstacle
+	to
+		kaos : KAOS!Obstacle (
+						name <- goro.name,
+			refinements <- goro.refinements,
+			refinementType <- goro.refinementType
+		)
+		
+}

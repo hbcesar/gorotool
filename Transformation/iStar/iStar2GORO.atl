@@ -19,9 +19,10 @@ rule iStar2GORO {
 		istar : iStar!iStarDiagram
 	
 	to
-		goro : GORO!Container (
+		goro : GORO!GOROContainer (
 			stakeholders <- istar.actors,
-			requirements <- istar.getElements()
+			GOREElements <- istar.getElements(),
+			Contributions <- istar.contributions
 		)
 }
 
@@ -30,9 +31,9 @@ rule Actor2Stakeholder {
 		istar : iStar!Actor
 	
 	to
-		goro : GORO!RequirementsStakeholder (
+		goro : GORO!Stakeholder (
 			name <- istar.name,
-			interestedIn <- istar.intentionalelements
+			interests <- istar.intentionalelements
 		)
 }
 
@@ -40,7 +41,7 @@ rule Goal2Goal {
 	from
 		istar : iStar!Goal 
 	to
-		goro : GORO!FunctionalHardgoalRequirementArtifact (
+		goro : GORO!FunctionalHardgoal (
 			name <- istar.name,
 			refinements <- istar.refinements->select(el | not el.oclIsKindOf(iStar!Task) and not el.oclIsKindOf(iStar!Resource)),
 			operationalizations <- istar.refinements->select(el | el.oclIsKindOf(iStar!Task)),
@@ -52,7 +53,7 @@ rule Quality2Softgoal {
 	from
 		istar : iStar!Quality
 	to
-		goro : GORO!NonFunctionalSoftgoalRequirementArtifact (
+		goro : GORO!NonFunctionalSoftgoal (
 			name <- istar.name,
 			refinements <- istar.refinements,
 			refinementType <- istar.refinementType
@@ -66,5 +67,26 @@ rule Task2Task {
 		goro : GORO!Task (
 			name <- istar.name,
 			intendsToOperationalize <- istar.father
+		)
+}
+
+rule Contribution2Contribution {
+	from
+		istar : iStar!Contribution
+	to
+		goro : GORO!Contribution (
+			name <- istar.source.name + ' to ' + istar.target.name,
+			source <- istar.source,
+			target <- istar.target,
+			intensity <- if istar.type = #break or istar.type = #make
+						then #total
+					else #partial
+					endif,
+			type <- if istar.type = #break or istar.type = #make
+						then #positive
+					else #negative
+					endif
+			
+			
 		)
 }

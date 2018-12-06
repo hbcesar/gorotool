@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<goro:Container xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:goro="http://nemo.inf.ufes.br/GORO">
-  <requirements xsi:type="goro:FunctionalHardgoalRequirementArtifact" name="vish">
-    <refinements xsi:type="goro:FunctionalHardgoalRequirementArtifact" name="cales">
-      <refinements xsi:type="goro:NonFunctionalSoftgoalRequirementArtifact" name="aves de rapina"/>
-      <operationalizations intendsToOperationalize="//@requirements.0/@refinements.0" name="eit"/>
-    </refinements>
-  </requirements>
-  <stakeholders xsi:type="goro:RequirementsStakeholder" name="ceso" interestedIn="//@requirements.0"/>
-</goro:Container>
+<goro:GOROContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:goro="http://nemo.inf.ufes.br/GORO">
+  <GOREElements xsi:type="goro:FunctionalHardgoal" name="Objetivo1" refinementType="AND"/>
+  <GOREElements xsi:type="goro:NonFunctionalSoftgoal" name="Softgoal1" refinementType="AND"/>
+  <stakeholders name="Cesar" interests="//@GOREElements.0 //@GOREElements.1"/>
+  <Contributions source="//@GOREElements.0" target="//@GOREElements.1" type="negative" intensity="partial" name="Objetivo1 to Softgoal1"/>
+</goro:GOROContainer>
