@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<istar:iStarDiagram
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:istar="http://nemo.inf.ufes.br/iStar"
+    xsi:schemaLocation="http://nemo.inf.ufes.br/iStar ../Metamodels/iStar.ecore">
+  <actors name="ceso">
+    <intentionalelements
+        xsi:type="istar:Goal"
+        name="vish">
+      <refinements
+          xsi:type="istar:Goal"
+          name="cales">
+        <refinements
+            xsi:type="istar:Task"
+            name="eit"/>
+        <refinements
+            xsi:type="istar:Quality"
+            name="aves de rapina"/>
+        <refinements
+            xsi:type="istar:Resource"
+            name="jeorgette"/>
+      </refinements>
+    </intentionalelements>
+  </actors>
+</istar:iStarDiagram>

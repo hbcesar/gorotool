@@ -5,13 +5,23 @@ module iStar2GORO;
 
 create OUT : GORO from IN : iStar;
 
+-- Returns all actors direct goals (root goals)
+helper context iStar!iStarDiagram def : getElements () : OrderedSet(iStar!GoalTaskElement) =
+	self.actors->iterate( element ; elements : OrderedSet(iStar!GoalTaskElement) = 
+		OrderedSet{} | 
+			elements.append(element.intentionalelements)
+		)
+	;
+
+
 rule iStar2GORO {
 	from
 		istar : iStar!iStarDiagram
 	
 	to
 		goro : GORO!Container (
-			stakeholders <- istar.actors
+			stakeholders <- istar.actors,
+			requirements <- istar.getElements()
 		)
 }
 
@@ -21,15 +31,40 @@ rule Actor2Stakeholder {
 	
 	to
 		goro : GORO!RequirementsStakeholder (
-			name <- istar.name
+			name <- istar.name,
+			interestedIn <- istar.intentionalelements
 		)
 }
 
 rule Goal2Goal {
 	from
-		istar : iStar!Goal (istar.refinements.oclIsUndefined())
+		istar : iStar!Goal 
 	to
-		goro : GORO!Goal-BasedRequirementArtifact (              //Remover todos os tracinhos
-			name <- istar.name
+		goro : GORO!FunctionalHardgoalRequirementArtifact (
+			name <- istar.name,
+			refinements <- istar.refinements->select(el | not el.oclIsKindOf(iStar!Task) and not el.oclIsKindOf(iStar!Resource)),
+			operationalizations <- istar.refinements->select(el | el.oclIsKindOf(iStar!Task)),
+			refinementType <- istar.refinementType
+		)
+}
+
+rule Quality2Softgoal {
+	from
+		istar : iStar!Quality
+	to
+		goro : GORO!NonFunctionalSoftgoalRequirementArtifact (
+			name <- istar.name,
+			refinements <- istar.refinements,
+			refinementType <- istar.refinementType
+		)
+}
+
+rule Task2Task {
+	from 
+		istar : iStar!Task
+	to
+		goro : GORO!Task (
+			name <- istar.name,
+			intendsToOperationalize <- istar.father
 		)
 }
