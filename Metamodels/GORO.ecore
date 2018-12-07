@@ -21,10 +21,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="conflictsWith" upperBound="-1"
         eType="#//GoalBasedRequirement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refinements" upperBound="-1"
-        eType="#//GoalBasedRequirement" containment="true"/>
+        eType="#//GoalBasedRequirement" containment="true" eOpposite="#//GoalBasedRequirement/father"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="refinementType" eType="#//refinementType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operationalizations" upperBound="-1"
         eType="#//Task" containment="true" eOpposite="#//Task/operationalizationedGoal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="father" eType="#//GoalBasedRequirement"
+        eOpposite="#//GoalBasedRequirement/refinements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionalHardgoal" eSuperTypes="#//GoalBasedRequirement"/>
   <eClassifiers xsi:type="ecore:EClass" name="NonFunctionalHardgoal" eSuperTypes="#//GoalBasedRequirement"/>

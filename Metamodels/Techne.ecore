@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Techne" nsURI="http://nemo.inf.ufes.br/Techne" nsPrefix="techne">
+  <eClassifiers xsi:type="ecore:EClass" name="TechneContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ElementNodes" upperBound="-1"
+        eType="#//TechneElementNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RelationalNodes" upperBound="-1"
+        eType="#//RelationalNode" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TechneElementNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relation" upperBound="-1"
+        eType="#//RelationalNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GoalTypeNode" eSuperTypes="#//TechneElementNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//GoalTypeNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Softgoal" eSuperTypes="#//GoalTypeNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QualityConstraint" eSuperTypes="#//TechneElementNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Softgoal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//TechneElementNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainAssumption" eSuperTypes="#//TechneElementNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationalNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//TechneElementNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InferenceNode" eSuperTypes="#//RelationalNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConflictNode" eSuperTypes="#//RelationalNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PreferenceNode" eSuperTypes="#//RelationalNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OptionalityNode" eSuperTypes="#//RelationalNode"/>
+</ecore:EPackage>

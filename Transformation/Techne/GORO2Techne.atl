@@ -1,0 +1,73 @@
+-- @path Techne=/GOROTool/Metamodels/Techne.ecore
+-- @path GORO=/GOROTool/Metamodels/GORO.ecore
+
+module GORO2Techne;
+
+create OUT : Techne from IN : GORO;
+
+rule Container2Container {
+	from
+		goro : GORO!GOROContainer
+	to
+		techne : Techne!TechneContainer (
+			ElementNodes <- goro.GOREElements->select(el | not el.oclIsKindOf(GORO!Obstacle))
+		)
+}
+
+rule FunctionalHardgoal2Goal {
+	from
+		goro : GORO!FunctionalHardgoal
+	to
+		techne : Techne!Goal (
+			name <- goro.name,
+			relation <- thisModule.Inferences()
+		)
+}
+
+rule NonFunctionalSoftgoal2Softgoal {
+	from
+		goro : GORO!NonFunctionalSoftgoal
+	to
+		techne : Techne!Softgoal (
+			name <- goro.name
+			--foreach refinement criar um inference node
+		)
+}
+
+rule NonFunctionalHardgoal2QualityConstraint {
+	from
+		goro : GORO!NonFunctionalHardgoal
+	to
+		techne : Techne!QualityConstraint (
+			name <- goro.name,
+			target <- goro.father
+		)
+}
+
+rule Task2Task {
+	from
+		goro : GORO!Task
+	to
+		techne : Techne!Task (
+			name <- goro.name
+			--foreach operationalization criar um inference node
+		)
+}
+
+rule Assumption2DomainAssumption {
+	from
+		goro : GORO!Assumption
+	to
+		techne : Techne!DomainAssumption (
+			name <- goro.name
+			--inference para target
+		)
+}
+
+lazy rule Inferences {
+	from
+		s : GORO!GoalBasedRequirement
+	to
+		techne : Techne!InferenceNode (
+		)
+}
