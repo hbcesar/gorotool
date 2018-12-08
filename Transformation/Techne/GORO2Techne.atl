@@ -10,7 +10,8 @@ rule Container2Container {
 		goro : GORO!GOROContainer
 	to
 		techne : Techne!TechneContainer (
-			ElementNodes <- goro.GOREElements->select(el | not el.oclIsKindOf(GORO!Obstacle))
+			ElementNodes <- GORO!GOREElementArtifact.allInstances()->select(el | not el.oclIsKindOf(GORO!Obstacle)),
+			RelationalNodes <- Techne!RelationalNode.allInstances()
 		)
 }
 
@@ -20,7 +21,9 @@ rule FunctionalHardgoal2Goal {
 	to
 		techne : Techne!Goal (
 			name <- goro.name,
-			relation <- thisModule.Inferences()
+			relation <- goro.refinements->collect(i | thisModule.GoalInference(i))
+			--conflicts <- goro.conflictsWith->collect(c | thisModule.GoalConflict(c))
+			
 		)
 }
 
@@ -29,8 +32,8 @@ rule NonFunctionalSoftgoal2Softgoal {
 		goro : GORO!NonFunctionalSoftgoal
 	to
 		techne : Techne!Softgoal (
-			name <- goro.name
-			--foreach refinement criar um inference node
+			name <- goro.name,
+			relation <- goro.refinements->collect(e | thisModule.SoftgoalInference(e))
 		)
 }
 
@@ -40,7 +43,7 @@ rule NonFunctionalHardgoal2QualityConstraint {
 	to
 		techne : Techne!QualityConstraint (
 			name <- goro.name,
-			target <- goro.father
+			target <- goro.father->collect(e | thisModule.QualityConstraintInference(e))
 		)
 }
 
@@ -49,8 +52,8 @@ rule Task2Task {
 		goro : GORO!Task
 	to
 		techne : Techne!Task (
-			name <- goro.name
-			--foreach operationalization criar um inference node
+			name <- goro.name,
+			relation <- goro.components->collect(e | thisModule.TaskInference(e))
 		)
 }
 
@@ -59,15 +62,62 @@ rule Assumption2DomainAssumption {
 		goro : GORO!Assumption
 	to
 		techne : Techne!DomainAssumption (
-			name <- goro.name
-			--inference para target
+			name <- goro.name,
+			relation <- goro.target->collect(e | thisModule.AssumptionInference(e))
 		)
 }
 
-lazy rule Inferences {
+
+lazy rule GoalInference {
 	from
-		s : GORO!GoalBasedRequirement
+		goro : GORO!FunctionalHardgoal
 	to
-		techne : Techne!InferenceNode (
+		techne : Techne!InferenceNode ( 
+			target <- goro
+		)
+}
+
+lazy rule SoftgoalInference {
+	from
+		goro : GORO!NonFunctionalSoftgoal
+	to
+		techne : Techne!InferenceNode ( 
+			target <- goro
+		)
+}
+
+lazy rule QualityConstraintInference {
+	from
+		goro : GORO!NonFunctionalHardgoal
+	to
+		techne : Techne!InferenceNode ( 
+			target <- goro
+		)
+}
+
+lazy rule TaskInference {
+	from
+		goro : GORO!Task
+	to
+		techne : Techne!InferenceNode ( 
+			target <- goro
+		)
+}
+
+lazy rule AssumptionInference {
+	from
+		goro : GORO!Assumption
+	to
+		techne : Techne!InferenceNode ( 
+			target <- goro
+		)
+}
+
+lazy rule GoalConflict {
+	from
+		goro : GORO!FunctionalHardgoal
+	to
+		techne : Techne!ConflictNode (
+			target <- goro
 		)
 }

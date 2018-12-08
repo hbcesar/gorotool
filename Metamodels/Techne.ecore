@@ -13,7 +13,10 @@
         eType="#//RelationalNode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoalTypeNode" eSuperTypes="#//TechneElementNode"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//GoalTypeNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//GoalTypeNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conflicts" upperBound="-1"
+        eType="#//ConflictNode"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Softgoal" eSuperTypes="#//GoalTypeNode"/>
   <eClassifiers xsi:type="ecore:EClass" name="QualityConstraint" eSuperTypes="#//TechneElementNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"

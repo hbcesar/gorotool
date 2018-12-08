@@ -10,6 +10,13 @@
       name="1">
     <refinements
         xsi:type="goro:FunctionalHardgoal"
-        name="2"/>
+        name="2">
+      <refinements
+          xsi:type="goro:NonFunctionalSoftgoal"
+          name="iti malia"/>
+    </refinements>
+    <refinements
+        xsi:type="goro:FunctionalHardgoal"
+        name="oto"/>
   </GOREElements>
 </goro:GOROContainer>
