@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<goro:GOROContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:goro="http://nemo.inf.ufes.br/GORO">
-  <GOREElements xsi:type="goro:FunctionalHardgoal" name="Objetivo1" refinementType="AND">
-    <refinements xsi:type="goro:FunctionalHardgoal" name="eita" refinementType="AND"/>
-  </GOREElements>
-  <GOREElements xsi:type="goro:NonFunctionalSoftgoal" name="Softgoal1" refinementType="AND"/>
-  <stakeholders name="Cesar" interests="//@GOREElements.0 //@GOREElements.1"/>
-  <Contributions source="//@GOREElements.0" target="//@GOREElements.1" type="negative" intensity="partial" name="Objetivo1 to Softgoal1"/>
-</goro:GOROContainer>
