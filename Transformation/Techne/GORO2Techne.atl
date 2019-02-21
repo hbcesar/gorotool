@@ -5,15 +5,6 @@ module GORO2Techne;
 
 create OUT : Techne from IN : GORO;
 
-rule Container2Container {
-	from
-		goro : GORO!GOROContainer
-	to
-		techne : Techne!TechneContainer (
-			ElementNodes <- GORO!GOREElementArtifact.allInstances()->select(el | not el.oclIsKindOf(GORO!Obstacle)),
-			RelationalNodes <- Techne!RelationalNode.allInstances()
-		)
-}
 
 rule FunctionalHardgoal2Goal {
 	from
@@ -119,5 +110,16 @@ lazy rule GoalConflict {
 	to
 		techne : Techne!ConflictNode (
 			target <- goro
+		)
+}
+
+
+lazy rule Container2Container {
+	from
+		goro : GORO!GOROContainer
+	to
+		techne : Techne!TechneContainer (
+			ElementNodes <- GORO!GOREElementArtifact.allInstances()->select(el | not el.oclIsKindOf(GORO!Obstacle)),
+			RelationalNodes <- Techne!InferenceNode.allInstances()
 		)
 }
