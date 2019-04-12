@@ -17,7 +17,7 @@ public class Converter {
 		System.out.println("Please, enter the piStar model file path:");
 		Scanner scanner = new Scanner(System.in);
 		
-		istar.read(scanner.nextLine());
+		istar.read("iStar Model ND.txt");
 		scanner.close();
 
 		istar.extract2OWL("converted_model.owl");

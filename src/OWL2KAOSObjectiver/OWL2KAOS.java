@@ -52,6 +52,28 @@ public class OWL2KAOS {
 		}
 		logger.warn(log_output);
 		
+		//Remove "orphan" tasks
+		String output = "";
+		boolean aux = false;
+		for(int i = 0; i < relations.size(); i++) {
+			GORORelation r = relations.get(i);
+			if(r.getType().equals("intends_to_operationalize")) {
+				int source = the_reader.lookupByName(r.getTarget());
+				if(source >= 0) {
+					elements.get(source).setOrphan(false);
+				}
+			}
+		}
+		for(int i = elements.size() -1; i >= 0; i--) {
+			GOROElement g = elements.get(i);
+			if(g.getType().equals("Task") && g.isOrphan()) {
+				aux = true;
+				output += g.getName() + "\n";
+				elements.remove(g);
+			}
+		}
+		if(aux) logger.warn("There are unlinked elements in the model. The following Operations were ignored:\n" + output);
+		
 		//Remove contribution elements
 		log_output = "KAOS does not have contribution relations. The following elements were ignored:\n";
 		for(int i = 0; i < elements.size(); i++) {
@@ -109,7 +131,7 @@ public class OWL2KAOS {
 			int sourceID = the_reader.lookupByName(source);
 			int targetID = the_reader.lookupByName(target);
 			
-			boolean aux = true;
+			aux = true;
 			
 			switch(type) {
 				case "AND_Goal-Based_Requirement_Artifact":
@@ -184,15 +206,15 @@ public class OWL2KAOS {
 					KAOSEntity el_source = entities.get(source);
 					
 					if(!el_source.getType().equals("Requirement")) {
-						Requirement newReq = new Requirement("Requirement " + el_source.getName(), "Requirement");
+						Requirement newReq = new Requirement(el_source.getName() + "_Requirement", "Requirement");
 						GoalRefinementRelation newRef = new GoalRefinementRelation("GRefinement");
 						entities.add(newReq);
 						relationships.add(newRef);
 						
 						newRef.setRefines(source);
-						newRef.addSubGoal(entities.size() -1);
+						newRef.addSubGoal(entities.size() - 1);
 						
-						((Goal) el_source).addRefinement(relationships.size() - 1);
+						//((Goal) el_source).addRefinement(relationships.size() - 1);
 						
 						((OperationRelation) r).setParent(entities.size() -1);
 						
@@ -217,18 +239,18 @@ public class OWL2KAOS {
 			}
 		}
 		
-		//Remove elements unlinked tasks
-		boolean aux = false;
-		String output = "";
-		for(int i = entities.size() - 1; i >= 0; i--) {
-			KAOSEntity e = entities.get(i);
-			if(e instanceof Operation && ((Operation) e).isOrphan()) {
-				aux = true;
-				output += entities.get(i).getName() + "\n";
-				entities.remove(i);
-			}
-		}
-		if(aux) logger.warn("There are unlinked elements in the model. The following Operations were ignored:\n" + output);
+		//Remove all unlinked tasks
+//		boolean aux = false;
+//		String output = "";
+//		for(int i = entities.size() - 1; i >= 0; i--) {
+//			KAOSEntity e = entities.get(i);
+//			if(e instanceof Operation && ((Operation) e).isOrphan()) {
+//				aux = true;
+//				output += entities.get(i).getName() + "\n";
+//				entities.remove(i);
+//			}
+//		}
+//		if(aux) logger.warn("There are unlinked elements in the model. The following Operations were ignored:\n" + output);
 		saveFile(filePath);
 	}
 	
