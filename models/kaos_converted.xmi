@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<objectiver.model:KModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:objectiver.model="http://kaos">
+  	<rootPackage >
+		<entities xsi:type="objectiver.model:Goal" name="Travel_Organized"  refinements="//@rootPackage/@relationships.0 "/>
+		<entities xsi:type="objectiver.model:Goal" name="Authorization_Obtained"  refinements="//@rootPackage/@relationships.2 " refinedIn="//@rootPackage/@relationships.0 "/>
+		<entities xsi:type="objectiver.model:Goal" name="Trip_Booked"  refinements="//@rootPackage/@relationships.6 //@rootPackage/@relationships.7 " refinedIn="//@rootPackage/@relationships.0 "/>
+		<entities xsi:type="objectiver.model:Goal" name="Request_Prepared"  refinements="//@rootPackage/@relationships.3 //@rootPackage/@relationships.13 " refinedIn="//@rootPackage/@relationships.2 "/>
+		<entities xsi:type="objectiver.model:Goal" name="Authorization_Signed"  refinements="//@rootPackage/@relationships.14 " refinedIn="//@rootPackage/@relationships.2 "/>
+		<entities xsi:type="objectiver.model:Operation" name="Fill_in_paper_form" strengthenedIn="//@rootPackage/@relationships.1/@strengthenings.0"/>
+		<entities xsi:type="objectiver.model:Operation" name="Fill_in_online_form" strengthenedIn="//@rootPackage/@relationships.1/@strengthenings.1"/>
+		<entities xsi:type="objectiver.model:SoftGoal" name="No_erros"  refinedIn="//@rootPackage/@relationships.3 "/>
+		<entities xsi:type="objectiver.model:Operation" name="Supervisor_authorizes" strengthenedIn="//@rootPackage/@relationships.4/@strengthenings.0"/>
+		<entities xsi:type="objectiver.model:Operation" name="Head-of-dept_authorizes" strengthenedIn="//@rootPackage/@relationships.4/@strengthenings.1"/>
+		<entities xsi:type="objectiver.model:Goal" name="Trip_parts_booked"  refinements="//@rootPackage/@relationships.8 " refinedIn="//@rootPackage/@relationships.6 "/>
+		<entities xsi:type="objectiver.model:Goal" name="Bundle_booked"  refinements="//@rootPackage/@relationships.15 " refinedIn="//@rootPackage/@relationships.7 "/>
+		<entities xsi:type="objectiver.model:Operation" name="Book_bundle" strengthenedIn="//@rootPackage/@relationships.5/@strengthenings.0"/>
+		<entities xsi:type="objectiver.model:SoftGoal" name="Quick_Booking"  refinedIn="//@rootPackage/@relationships.8 "/>
+		<entities xsi:type="objectiver.model:Goal" name="Tickets_booked"  refinements="//@rootPackage/@relationships.16 " refinedIn="//@rootPackage/@relationships.8 "/>
+		<entities xsi:type="objectiver.model:Goal" name="Accommodation_booked"  refinements="//@rootPackage/@relationships.10 //@rootPackage/@relationships.11 " refinedIn="//@rootPackage/@relationships.8 "/>
+		<entities xsi:type="objectiver.model:Operation" name="Agency_buys_tickets" strengthenedIn="//@rootPackage/@relationships.9/@strengthenings.0"/>
+		<entities xsi:type="objectiver.model:Operation" name="Self-book_tickets" strengthenedIn="//@rootPackage/@relationships.9/@strengthenings.1"/>
+		<entities xsi:type="objectiver.model:SoftGoal" name="Comfort" />
+		<entities xsi:type="objectiver.model:SoftGoal" name="Minimal_own_payments" />
+		<entities xsi:type="objectiver.model:Goal" name="Conference_hotel_booked"  refinedIn="//@rootPackage/@relationships.10 "/>
+		<entities xsi:type="objectiver.model:Goal" name="Budget_hotel_booked"  refinements="//@rootPackage/@relationships.17 " refinedIn="//@rootPackage/@relationships.11 "/>
+		<entities xsi:type="objectiver.model:Operation" name="Buy_through_booking.com" strengthenedIn="//@rootPackage/@relationships.12/@strengthenings.0"/>
+		<entities xsi:type="objectiver.model:Operation" name="Buy_through_hotel_website" strengthenedIn="//@rootPackage/@relationships.12/@strengthenings.1"/>
+		<entities xsi:type="objectiver.model:Requirement" name="Request_Prepared_Requirement"  refinedIn="//@rootPackage/@relationships.13 " Operationalizations="//@rootPackage/@relationships.1 "/>
+		<entities xsi:type="objectiver.model:Requirement" name="Authorization_Signed_Requirement"  refinedIn="//@rootPackage/@relationships.14 " Operationalizations="//@rootPackage/@relationships.4 "/>
+		<entities xsi:type="objectiver.model:Requirement" name="Bundle_booked_Requirement"  refinedIn="//@rootPackage/@relationships.15 " Operationalizations="//@rootPackage/@relationships.5 "/>
+		<entities xsi:type="objectiver.model:Requirement" name="Tickets_booked_Requirement"  refinedIn="//@rootPackage/@relationships.16 " Operationalizations="//@rootPackage/@relationships.9 "/>
+		<entities xsi:type="objectiver.model:Requirement" name="Budget_hotel_booked_Requirement"  refinedIn="//@rootPackage/@relationships.17 " Operationalizations="//@rootPackage/@relationships.12 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.0" subGoals="//@rootPackage/@entities.1 //@rootPackage/@entities.2 "/>
+		<relationships xsi:type="objectiver.model:Operationalization" parent="//@rootPackage/@entities.24">
+			<strengthenings operation="//@rootPackage/@entities.5"/>
+			<strengthenings operation="//@rootPackage/@entities.6"/>
+		</relationships>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.1" subGoals="//@rootPackage/@entities.3 //@rootPackage/@entities.4 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.3" subGoals="//@rootPackage/@entities.7 "/>
+		<relationships xsi:type="objectiver.model:Operationalization" parent="//@rootPackage/@entities.25">
+			<strengthenings operation="//@rootPackage/@entities.8"/>
+			<strengthenings operation="//@rootPackage/@entities.9"/>
+		</relationships>
+		<relationships xsi:type="objectiver.model:Operationalization" parent="//@rootPackage/@entities.26">
+			<strengthenings operation="//@rootPackage/@entities.12"/>
+		</relationships>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.2" subGoals="//@rootPackage/@entities.10 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.2" subGoals="//@rootPackage/@entities.11 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.10" subGoals="//@rootPackage/@entities.13 //@rootPackage/@entities.14 //@rootPackage/@entities.15 "/>
+		<relationships xsi:type="objectiver.model:Operationalization" parent="//@rootPackage/@entities.27">
+			<strengthenings operation="//@rootPackage/@entities.16"/>
+			<strengthenings operation="//@rootPackage/@entities.17"/>
+		</relationships>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.15" subGoals="//@rootPackage/@entities.20 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.15" subGoals="//@rootPackage/@entities.21 "/>
+		<relationships xsi:type="objectiver.model:Operationalization" parent="//@rootPackage/@entities.28">
+			<strengthenings operation="//@rootPackage/@entities.22"/>
+			<strengthenings operation="//@rootPackage/@entities.23"/>
+		</relationships>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.3" subGoals="//@rootPackage/@entities.24 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.4" subGoals="//@rootPackage/@entities.25 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.11" subGoals="//@rootPackage/@entities.26 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.14" subGoals="//@rootPackage/@entities.27 "/>
+		<relationships xsi:type="objectiver.model:GRefinement" refines="//@rootPackage/@entities.21" subGoals="//@rootPackage/@entities.28 "/>
+  	</rootPackage>
+</objectiver.model:KModel>
