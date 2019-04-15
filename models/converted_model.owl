@@ -1,0 +1,890 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/NEMO/ontologies/2019/2/GORO"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/césar/ontologies/2019/2/GORO">
+    <Prefix name="" IRI="http://www.semanticweb.org/césar/ontologies/2019/2/GORO"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Assumption_Artifact"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Contribution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Functional_Requirement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Functional_Requirement_Hardgoal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Functional_Requirement_Softgoal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GBRA_Contribution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hardgoal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Non-functional_Requirement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Non-functional_Requirement_Hardgoal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Non-functional_Requirement_Softgoal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Obstacle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Requirements_Stakeholder"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Softgoal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Task"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Resource"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Task_Contribution"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Complex_Task_Decomposition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#conflicts_with"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contingency"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contribution_mediation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#intends_to_operationalize"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#interest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#mitigation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#obstruction"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#intensity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#type"/>
+    </Declaration>
+	 <Declaration>
+        <ObjectProperty IRI="#produces"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#requires"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Functional_Requirement"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Functional_Requirement_Hardgoal"/>
+        <Class IRI="#Functional_Requirement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Functional_Requirement_Hardgoal"/>
+        <Class IRI="#Hardgoal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Functional_Requirement_Softgoal"/>
+        <Class IRI="#Functional_Requirement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Functional_Requirement_Softgoal"/>
+        <Class IRI="#Softgoal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GBRA_Contribution"/>
+        <Class IRI="#Contribution"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hardgoal"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Non-functional_Requirement"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Non-functional_Requirement_Hardgoal"/>
+        <Class IRI="#Hardgoal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Non-functional_Requirement_Hardgoal"/>
+        <Class IRI="#Non-functional_Requirement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Non-functional_Requirement_Softgoal"/>
+        <Class IRI="#Non-functional_Requirement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Non-functional_Requirement_Softgoal"/>
+        <Class IRI="#Softgoal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Softgoal"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Task_Contribution"/>
+        <Class IRI="#Contribution"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#obstruction"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#Complex_Task_Decomposition"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#conflicts_with"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#contingency"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#contribution_mediation"/>
+        <Class IRI="#Contribution"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#intends_to_operationalize"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#interest"/>
+        <Class IRI="#Requirements_Stakeholder"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#mitigation"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#obstruction"/>
+        <Class IRI="#Obstacle"/>
+    </ObjectPropertyDomain>
+	 <ObjectPropertyDomain>
+        <ObjectProperty IRI="#produces"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#requires"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>    <ObjectPropertyRange>
+        <ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Complex_Task_Decomposition"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#conflicts_with"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#contingency"/>
+        <Class IRI="#Obstacle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#contribution_mediation"/>
+        <Class IRI="#Non-functional_Requirement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#intends_to_operationalize"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#interest"/>
+        <Class IRI="#Assumption_Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#interest"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#interest"/>
+        <Class IRI="#Obstacle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#interest"/>
+        <Class IRI="#Requirements_Stakeholder"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#mitigation"/>
+        <Class IRI="#Obstacle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#obstruction"/>
+        <Class IRI="#Goal-Based_Requirement_Artifact"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#produces"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#requires"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#intensity"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#intensity"/>
+        <Class IRI="#Contribution"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#type"/>
+        <Class IRI="#Contribution"/>
+    </DataPropertyDomain>
+	<Declaration>
+		<NamedIndividual IRI="#Travel_Organized"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Travel_Organized"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Authorization_Obtained"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Authorization_Obtained"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Trip_Booked"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Trip_Booked"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Request_Prepared"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Request_Prepared"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Authorization_Signed"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Authorization_Signed"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Fill_in_paper_form"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Fill_in_paper_form"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Fill_in_online_form"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Fill_in_online_form"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#No_erros"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Non-functional_Requirement_Softgoal"/>
+		<NamedIndividual IRI="#No_erros"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Supervisor_authorizes"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Supervisor_authorizes"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Head-of-dept_authorizes"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Head-of-dept_authorizes"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Trip_parts_booked"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Trip_parts_booked"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Bundle_booked"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Bundle_booked"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Book_bundle"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Book_bundle"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Quick_Booking"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Non-functional_Requirement_Softgoal"/>
+		<NamedIndividual IRI="#Quick_Booking"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Tickets_booked"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Tickets_booked"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Accommodation_booked"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Accommodation_booked"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Agency_buys_tickets"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Agency_buys_tickets"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Self-book_tickets"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Self-book_tickets"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Buy_Tickets"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Buy_Tickets"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Pay_for_tickets"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Pay_for_tickets"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Comfort"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Non-functional_Requirement_Softgoal"/>
+		<NamedIndividual IRI="#Comfort"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Minimal_own_payments"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Non-functional_Requirement_Softgoal"/>
+		<NamedIndividual IRI="#Minimal_own_payments"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Conference_hotel_booked"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Conference_hotel_booked"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Budget_hotel_booked"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Budget_hotel_booked"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Buy_through_booking.com"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Buy_through_booking.com"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Buy_through_hotel_website"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Buy_through_hotel_website"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Credit_card"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Resource"/>
+		<NamedIndividual IRI="#Credit_card"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Proccess_Form"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Proccess_Form"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Validate_Details"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Validate_Details"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Request_Autorization"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Request_Autorization"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Notify_Applicant"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Notify_Applicant"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Book_Bundle_Via_Expedia"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Task"/>
+		<NamedIndividual IRI="#Book_Bundle_Via_Expedia"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Travel_Organized"/>
+		<NamedIndividual IRI="#Authorization_Obtained"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Travel_Organized"/>
+		<NamedIndividual IRI="#Trip_Booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Fill_in_paper_form"/>
+		<NamedIndividual IRI="#Request_Prepared"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Authorization_Obtained"/>
+		<NamedIndividual IRI="#Request_Prepared"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Authorization_Obtained"/>
+		<NamedIndividual IRI="#Authorization_Signed"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Fill_in_online_form"/>
+		<NamedIndividual IRI="#Request_Prepared"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Request_Prepared"/>
+		<NamedIndividual IRI="#No_erros"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Supervisor_authorizes"/>
+		<NamedIndividual IRI="#Authorization_Signed"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Head-of-dept_authorizes"/>
+		<NamedIndividual IRI="#Authorization_Signed"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Book_bundle"/>
+		<NamedIndividual IRI="#Bundle_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Trip_Booked"/>
+		<NamedIndividual IRI="#Trip_parts_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Trip_Booked"/>
+		<NamedIndividual IRI="#Bundle_booked"/>
+	</ObjectPropertyAssertion>
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Supervisor_authorizes_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Supervisor_authorizes_contribution"/>
+		<NamedIndividual IRI="#Quick_Booking"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Supervisor_authorizes_contribution"/>
+		<NamedIndividual IRI="#Supervisor_authorizes"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Supervisor_authorizes_contribution"/>
+		<Literal>positive</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Supervisor_authorizes_contribution"/>
+		<Literal>partial</Literal>
+	</DataPropertyAssertion>
+
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_online_form_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_online_form_contribution"/>
+		<NamedIndividual IRI="#No_erros"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_online_form_contribution"/>
+		<NamedIndividual IRI="#Fill_in_online_form"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_online_form_contribution"/>
+		<Literal>positive</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_online_form_contribution"/>
+		<Literal>partial</Literal>
+	</DataPropertyAssertion>
+
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Head-of-dept_authorizes_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Head-of-dept_authorizes_contribution"/>
+		<NamedIndividual IRI="#Quick_Booking"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Head-of-dept_authorizes_contribution"/>
+		<NamedIndividual IRI="#Head-of-dept_authorizes"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Head-of-dept_authorizes_contribution"/>
+		<Literal>negative</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Head-of-dept_authorizes_contribution"/>
+		<Literal>total</Literal>
+	</DataPropertyAssertion>
+
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_paper_form_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_paper_form_contribution"/>
+		<NamedIndividual IRI="#No_erros"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_paper_form_contribution"/>
+		<NamedIndividual IRI="#Fill_in_paper_form"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_paper_form_contribution"/>
+		<Literal>negative</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#No_erros_to_Fill_in_paper_form_contribution"/>
+		<Literal>partial</Literal>
+	</DataPropertyAssertion>
+
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Trip_parts_booked"/>
+		<NamedIndividual IRI="#Quick_Booking"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Trip_parts_booked"/>
+		<NamedIndividual IRI="#Tickets_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Trip_parts_booked"/>
+		<NamedIndividual IRI="#Accommodation_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Agency_buys_tickets"/>
+		<NamedIndividual IRI="#Tickets_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Self-book_tickets"/>
+		<NamedIndividual IRI="#Tickets_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<NamedIndividual IRI="#Self-book_tickets"/>
+		<NamedIndividual IRI="#Buy_Tickets"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<NamedIndividual IRI="#Self-book_tickets"/>
+		<NamedIndividual IRI="#Pay_for_tickets"/>
+	</ObjectPropertyAssertion>
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#Comfort_to_Minimal_own_payments_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Comfort_to_Minimal_own_payments_contribution"/>
+		<NamedIndividual IRI="#Comfort"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Comfort_to_Minimal_own_payments_contribution"/>
+		<NamedIndividual IRI="#Minimal_own_payments"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#Comfort_to_Minimal_own_payments_contribution"/>
+		<Literal>positive</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#Comfort_to_Minimal_own_payments_contribution"/>
+		<Literal>partial</Literal>
+	</DataPropertyAssertion>
+
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#Comfort_to_Quick_Booking_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Comfort_to_Quick_Booking_contribution"/>
+		<NamedIndividual IRI="#Comfort"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Comfort_to_Quick_Booking_contribution"/>
+		<NamedIndividual IRI="#Quick_Booking"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#Comfort_to_Quick_Booking_contribution"/>
+		<Literal>positive</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#Comfort_to_Quick_Booking_contribution"/>
+		<Literal>partial</Literal>
+	</DataPropertyAssertion>
+
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Self-book_tickets_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Self-book_tickets_contribution"/>
+		<NamedIndividual IRI="#Quick_Booking"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Self-book_tickets_contribution"/>
+		<NamedIndividual IRI="#Self-book_tickets"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Self-book_tickets_contribution"/>
+		<Literal>positive</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#Quick_Booking_to_Self-book_tickets_contribution"/>
+		<Literal>partial</Literal>
+	</DataPropertyAssertion>
+
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Agency_buys_tickets_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Agency_buys_tickets_contribution"/>
+		<NamedIndividual IRI="#Minimal_own_payments"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Agency_buys_tickets_contribution"/>
+		<NamedIndividual IRI="#Agency_buys_tickets"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Agency_buys_tickets_contribution"/>
+		<Literal>positive</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Agency_buys_tickets_contribution"/>
+		<Literal>partial</Literal>
+	</DataPropertyAssertion>
+
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Self-book_tickets_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Self-book_tickets_contribution"/>
+		<NamedIndividual IRI="#Minimal_own_payments"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Self-book_tickets_contribution"/>
+		<NamedIndividual IRI="#Self-book_tickets"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Self-book_tickets_contribution"/>
+		<Literal>negative</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Self-book_tickets_contribution"/>
+		<Literal>partial</Literal>
+	</DataPropertyAssertion>
+
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Accommodation_booked"/>
+		<NamedIndividual IRI="#Conference_hotel_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Accommodation_booked"/>
+		<NamedIndividual IRI="#Budget_hotel_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Buy_through_booking.com"/>
+		<NamedIndividual IRI="#Budget_hotel_booked"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Buy_through_hotel_website"/>
+		<NamedIndividual IRI="#Budget_hotel_booked"/>
+	</ObjectPropertyAssertion>
+	<ClassAssertion>
+		<Class IRI="#Contribution"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Book_bundle_contribution"/>
+	</ClassAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Book_bundle_contribution"/>
+		<NamedIndividual IRI="#Minimal_own_payments"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#contribution_mediation"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Book_bundle_contribution"/>
+		<NamedIndividual IRI="#Book_bundle"/>
+	</ObjectPropertyAssertion>	<DataPropertyAssertion>
+		<DataProperty IRI="#type"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Book_bundle_contribution"/>
+		<Literal>positive</Literal>
+	</DataPropertyAssertion>
+	<DataPropertyAssertion>
+		<DataProperty IRI="#intensity"/>
+		<NamedIndividual IRI="#Minimal_own_payments_to_Book_bundle_contribution"/>
+		<Literal>total</Literal>
+	</DataPropertyAssertion>
+
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<NamedIndividual IRI="#Proccess_Form"/>
+		<NamedIndividual IRI="#Validate_Details"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<NamedIndividual IRI="#Proccess_Form"/>
+		<NamedIndividual IRI="#Request_Autorization"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<NamedIndividual IRI="#Proccess_Form"/>
+		<NamedIndividual IRI="#Notify_Applicant"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#requires"/>
+		<NamedIndividual IRI="#Pay_for_tickets"/>
+		<NamedIndividual IRI="#Credit_card"/>
+	</ObjectPropertyAssertion>
+</Ontology>
