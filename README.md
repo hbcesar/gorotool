@@ -7,4 +7,4 @@ Currently the tool performs conversion of the following languages:
 
 GCT generates intermediate models, which are GORO instantiations in OWL files that can be loaded into applications such as [Protègè](https://protege.stanford.edu/).
 
-For instructions on use and installation, please check the wiki of this repository.If you have any questions, comments, or any other form of contribution, please [contact us](https://nemo.inf.ufes.br/contact/).
+For instructions on use and installation, please check the [Wiki](https://github.com/nemo-ufes/gorotool/wiki) of this repository. If you have any questions, comments, or any other form of contribution, please [contact us](https://nemo.inf.ufes.br/contact/).
