@@ -1,6 +1,6 @@
 # GORE-Conversion-Tool
 
-The GCT is a tool created to perform the transformation between Goal Models with the help of the GORO Ontology. This tool was developed in the context of the research on Goal Modeling Languages conducted within the ROSE Project.
+The GCT is a tool created to perform the transformation between Goal Models with the help of the GORO Ontology. This tool was developed in the context of the research on Goal Modeling Languages conducted within the ROSE (Requirements, Ontologies and Software Evolution) Project.
 
 Currently the tool performs conversion of the following languages:
 - iStar for KAOS: conversion of models created in the [piStar](http://www.cin.ufpe.br/~jhcp/pistar/tool/#) tool to models that can be read in the [Objectiver](http://www.objectiver.com/index.php?id=3) tool.
