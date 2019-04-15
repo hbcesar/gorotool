@@ -27,15 +27,15 @@ public class OperationRelation extends KAOSRelationship {
 	}
 	
 	public String toString() {
-		String str = "<relationships xsi:type=\"objectiver.model:%s\" parent=\"//@rootPackage/@entities.%s\">\n";
+		String str = "\t\t<relationships xsi:type=\"objectiver.model:%s\" parent=\"//@rootPackage/@entities.%s\">\n";
 		
 		str = String.format(str, super.getType(), this.getParent());
 		
 		for(int i = 0; i < strengthenings.size(); i++) {
-			str += "\t<strengthenings operation=\"//@rootPackage/@entities." + strengthenings.get(i) + "\"/>\n";
+			str += "\t\t\t<strengthenings operation=\"//@rootPackage/@entities." + strengthenings.get(i) + "\"/>\n";
 		}
 		
-		str += "</relationships>\n";
+		str += "\t\t</relationships>\n";
 		
 		return str;
 	}

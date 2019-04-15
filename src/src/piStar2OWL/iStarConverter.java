@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
 //https://www.testingexcellence.com/how-to-parse-json-in-java/
 import org.json.*;
 
@@ -16,6 +17,11 @@ public class iStarConverter {
 	private ArrayList<Actor> actors = new ArrayList<Actor>();
 	private ArrayList<iStarElm> dependencies = new ArrayList<iStarElm>();
 	private ArrayList<iStarLink> links = new ArrayList<iStarLink>();
+	Logger logger;
+	
+	public iStarConverter() {
+		logger = Logger.getLogger( "logger");
+	}
 	
 	public ArrayList<Actor> getActors() {
 		return actors;
@@ -26,7 +32,7 @@ public class iStarConverter {
 	}
 
 	public void read(String filePath) {
-		System.out.println("Reading the PiStar file");
+		System.out.println("[INFO] Reading the PiStar file");
 		
 		String str = "";
 		
@@ -45,7 +51,7 @@ public class iStarConverter {
 	        input.close();
 	        
 		} catch (FileNotFoundException e) {
-			System.out.println("Error: file not found.");
+			System.out.println("[ERROR] Error: file not found.");
 			e.printStackTrace();
 		}
 		
@@ -74,7 +80,7 @@ public class iStarConverter {
 					iStarElm el = new iStarElm(type, id, name, actorID);
 					actor.addElement(el);
 				} else {
-					System.out.println("Error: there is an element with a missing field");
+					System.out.println("[ERROR] There is an element with a missing field.");
 				}
 			}
 			
@@ -83,24 +89,29 @@ public class iStarConverter {
 		
 		//Dependencies
 		res = obj.getJSONArray("dependencies");
+		String output = "";
+		if(res.length() > 0) output = "GORO does not support iStar dependencies. The following elements were ignored:\n";
 		for(int i = 0; i < res.length(); i++) { //for each dependency
 			JSONObject node = res.getJSONObject(i);
 			
-			if(node.has("type") && node.has("source") && node.has("target") && node.has("id")) {
-				String dependumID = node.getString("id");
+//			if(node.has("type") && node.has("source") && node.has("target") && node.has("id")) {
 				
-				if(node.has("type") && node.has("id")) {
-
+//				String dependumID = node.getString("id");
+//				
+				if(node.has("type")) { //&& node.has("id")) {
+//
 					String type = node.getString("type");
-					String id = node.getString("id");
+//					String id = node.getString("id");
 					String name = (node.has("text"))? node.getString("text") : type.replace("istar.", "") + " " + i;  
-					iStarElm el = new iStarElm(type, id, name, dependumID);
-					dependencies.add(el);
-				} else {
-					System.out.println("Error: there is a dependency with a missing field");
+//					iStarElm el = new iStarElm(type, id, name, dependumID);
+//					dependencies.add(el);
+//				} else {
+//					System.out.println("[ERROR] There is a dependency with a missing field");
+					output += name + "\n";
 				}
-			}
+//			}
 		}
+		if(res.length() > 0) logger.warn(output);
 		
 		//Links
 		res = obj.getJSONArray("links");
@@ -109,17 +120,19 @@ public class iStarConverter {
 			
 			if(node.has("type") && node.has("source") && node.has("target") && node.has("id")) {
 				String type = node.getString("type");
-				String target = node.getString("source");
-				String source = node.getString("target");
-				
-				iStarLink d;
-				if(node.has("label")) {
-					d = new iStarLink(source, target, type, node.getString("label"));
-				} else {
-					d = new iStarLink(source, target, type);
-				}
-				
-				links.add(d);
+				if(!(type.equals("istar.DependencyLink") || type.equals("istar.ParticipatesInLink") || type.equals("istar.IsALink"))) {
+					String target = node.getString("source");
+					String source = node.getString("target");
+					
+					iStarLink d;
+					if(node.has("label")) {
+						d = new iStarLink(source, target, type, node.getString("label"));
+					} else {
+						d = new iStarLink(source, target, type);
+					}
+					
+					links.add(d);
+				} 
 			}
 		}
 		
@@ -131,11 +144,11 @@ public class iStarConverter {
 			l.setTarget(lookupByID(l.getTargetID()));
 		}
 		
-		System.out.println("PiStar file successfully read");
+		System.out.println("[INFO] PiStar file successfully read");
 	}
 	
 	public void extract2OWL(String filePath) {
-		System.out.println("Creating the OWL file from PiStar");
+		System.out.println("[INFO] Creating the OWL file from PiStar");
 		
 		String str = "";
 		
@@ -154,10 +167,10 @@ public class iStarConverter {
 			str += "\n";
 		}
 		
-		for(int i = 0; i < this.dependencies.size(); i++) {
-			str += this.dependencies.get(i).toString();
-			str += "\n";
-		}
+//		for(int i = 0; i < this.dependencies.size(); i++) {
+//			str += this.dependencies.get(i).toString();
+//			str += "\n";
+//		}
 		
 		//extract the string into a OWL file
 		PrintWriter writer;
@@ -169,7 +182,7 @@ public class iStarConverter {
 			output += "</Ontology>";
 			writer.print(output);
 			writer.close();
-			System.out.println("Intermediary OWL file successfully created.");
+			System.out.println("[INFO] Intermediary OWL file successfully created: converted_model.owl");
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -179,10 +192,12 @@ public class iStarConverter {
 			e.printStackTrace();
 		}
 		
-		System.out.println("As GORO does not support actors boundaries like iStar, the following actors will be ignored:");
+		String log_output = "As GORO does not support actors boundaries such as iStar does. The following actors were ignored:\n";
 		for(int i = 0; i < actors.size(); i++) {
-			System.out.println("Type: " + actors.get(i).getType().replace("istar.", "") + ", name: " + actors.get(i).getName());
+			log_output += "Type: " + actors.get(i).getType().replace("istar.", "") + ", name: " + actors.get(i).getName() + "\n";
 		}
+		
+		logger.warn(log_output);
 
 	}
 	
@@ -204,8 +219,9 @@ public class iStarConverter {
 			}
 		}
 		
-		System.out.println("ERROR: inconsistency in PiStar file. The follow ID do not exist: " + id);
+		System.out.println("[ERROR] inconsistency in PiStar file. The follow ID do not exist: " + id);
 		
+		System.exit(0);
 		return null;
 	}
 }

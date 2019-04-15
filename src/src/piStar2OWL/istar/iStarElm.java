@@ -56,8 +56,9 @@ public class iStarElm {
 				return formatedDeclaration + str;
 				
 			case "istar.Resource":
-				str = String.format(str, "Task", "Provide_" + this.getName().replaceAll("\\s+","_"));
-				formatedDeclaration = String.format(declaration, "Provide_" + this.getName().replaceAll("\\s+","_"));
+				//str = String.format(str, "Task", "Provide_" + this.getName().replaceAll("\\s+","_"));
+				//formatedDeclaration = String.format(declaration, "Provide_" + this.getName().replaceAll("\\s+","_"));
+				str = String.format(str, "Resource", this.getName().replaceAll("\\s+","_"));
 				return formatedDeclaration + str;
 				
 			default:

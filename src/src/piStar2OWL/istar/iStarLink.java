@@ -49,7 +49,7 @@ public class iStarLink {
 		switch(this.type) {
 			case "istar.AndRefinementLink":
 				if(this.source.getType().equals("istar.Goal") && this.target.getType().equals("istar.Task")) {
-					str = String.format(str, "intends_to_operationalize", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
+					str = String.format(str, "intends_to_operationalize", this.target.getName().replaceAll("\\s+","_"), this.source.getName().replaceAll("\\s+","_"));
 				} else if(this.source.getType().equals("istar.Task") && this.target.getType().equals("istar.Task")) {
 					str = String.format(str, "Complex_Task_Decomposition", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
 				} else {
@@ -59,7 +59,7 @@ public class iStarLink {
 				
 			case "istar.OrRefinementLink":
 				if(this.source.getType().equals("istar.Goal") && this.target.getType().equals("istar.Task")) {
-					str = String.format(str, "intends_to_operationalize", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
+					str = String.format(str, "intends_to_operationalize", this.target.getName().replaceAll("\\s+","_"), this.source.getName().replaceAll("\\s+","_"));
 				} else if(this.source.getType().equals("istar.Task") && this.target.getType().equals("istar.Task")) {
 					str = String.format(str, "Complex_Task_Decomposition", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
 				} else {
@@ -68,22 +68,22 @@ public class iStarLink {
 				return str;
 				
 				
-			case "istar.DependencyLink":
-				if(this.source.getType().equals("istar.Goal") && this.target.getType().equals("istar.Task")) {
-					str = String.format(str, "intends_to_operationalize", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
-				} else if(this.source.getType().equals("istar.Task") && this.target.getType().equals("istar.Task")) {
-					str = String.format(str, "Complex_Task_Decomposition", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
-				} else {
-					str = String.format(str, "OR_Goal-Based_Requirement_Artifact", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
-				}
-				return str;
+//			case "istar.DependencyLink":
+//				if(this.source.getType().equals("istar.Goal") && this.target.getType().equals("istar.Task")) {
+//					str = String.format(str, "intends_to_operationalize", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
+//				} else if(this.source.getType().equals("istar.Task") && this.target.getType().equals("istar.Task")) {
+//					str = String.format(str, "Complex_Task_Decomposition", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
+//				} else {
+//					str = String.format(str, "OR_Goal-Based_Requirement_Artifact", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
+//				}
+//				return str;
 				
 			case "istar.QualificationLink":
 				str = String.format(str, "OR_Goal-Based_Requirement_Artifact", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
 				return str;
 				
 			case "istar.NeededByLink":
-				str = String.format(str, "Complex_Task_Decomposition", "Provide_" + this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
+				str = String.format(str, "requires", this.source.getName().replaceAll("\\s+","_"), this.target.getName().replaceAll("\\s+","_"));
 				return str;
 				
 			case "istar.ContributionLink":

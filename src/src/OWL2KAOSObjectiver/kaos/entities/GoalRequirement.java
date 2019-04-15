@@ -36,8 +36,7 @@ public class GoalRequirement extends KAOSEntity {
 	}
 	
 	public void convertToRequirement() {
-		System.out.println("Convertendo o menino para Req");
-		super.setType("Requirement");
+		this.type = "Requirement";
 	}
 	
 	public String toString() {

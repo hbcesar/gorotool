@@ -74,7 +74,7 @@ public class OWLReader {
 				}
 			}
 			
-			System.out.println("OWL File successfully loaded.");
+			System.out.println("[INFO] OWL File successfully loaded.");
 			
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block

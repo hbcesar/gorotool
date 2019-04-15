@@ -61,6 +61,9 @@ public class OWLFile {
 			"        <Class IRI=\"#Task\"/>\r\n" + 
 			"    </Declaration>\r\n" + 
 			"    <Declaration>\r\n" + 
+			"        <Class IRI=\"#Resource\"/>\r\n" + 
+			"    </Declaration>\r\n" + 
+			"    <Declaration>\r\n" + 
 			"        <Class IRI=\"#Task_Contribution\"/>\r\n" + 
 			"    </Declaration>\r\n" + 
 			"    <Declaration>\r\n" + 
@@ -99,6 +102,12 @@ public class OWLFile {
 			"    <Declaration>\r\n" + 
 			"        <DataProperty IRI=\"#type\"/>\r\n" + 
 			"    </Declaration>\r\n" + 
+			"	 <Declaration>\r\n" + 
+			"        <ObjectProperty IRI=\"#produces\"/>\r\n" + 
+			"    </Declaration>\r\n" + 
+			"    <Declaration>\r\n" + 
+			"        <ObjectProperty IRI=\"#requires\"/>\r\n" + 
+			"    </Declaration>\r\n" +
 			"    <SubClassOf>\r\n" + 
 			"        <Class IRI=\"#Functional_Requirement\"/>\r\n" + 
 			"        <Class IRI=\"#Goal-Based_Requirement_Artifact\"/>\r\n" + 
@@ -203,6 +212,14 @@ public class OWLFile {
 			"        <ObjectProperty IRI=\"#obstruction\"/>\r\n" + 
 			"        <Class IRI=\"#Obstacle\"/>\r\n" + 
 			"    </ObjectPropertyDomain>\r\n" + 
+			"	 <ObjectPropertyDomain>\r\n" + 
+			"        <ObjectProperty IRI=\"#produces\"/>\r\n" + 
+			"        <Class IRI=\"#Task\"/>\r\n" + 
+			"    </ObjectPropertyDomain>\r\n" + 
+			"    <ObjectPropertyDomain>\r\n" + 
+			"        <ObjectProperty IRI=\"#requires\"/>\r\n" + 
+			"        <Class IRI=\"#Task\"/>\r\n" + 
+			"    </ObjectPropertyDomain>" +
 			"    <ObjectPropertyRange>\r\n" + 
 			"        <ObjectProperty IRI=\"#AND_Goal-Based_Requirement_Artifact\"/>\r\n" + 
 			"        <Class IRI=\"#Goal-Based_Requirement_Artifact\"/>\r\n" + 
@@ -255,6 +272,14 @@ public class OWLFile {
 			"        <ObjectProperty IRI=\"#obstruction\"/>\r\n" + 
 			"        <Class IRI=\"#Goal-Based_Requirement_Artifact\"/>\r\n" + 
 			"    </ObjectPropertyRange>\r\n" + 
+			"    <ObjectPropertyRange>\r\n" + 
+			"        <ObjectProperty IRI=\"#produces\"/>\r\n" + 
+			"        <Class IRI=\"#Resource\"/>\r\n" + 
+			"    </ObjectPropertyRange>\r\n" + 
+			"    <ObjectPropertyRange>\r\n" + 
+			"        <ObjectProperty IRI=\"#requires\"/>\r\n" + 
+			"        <Class IRI=\"#Resource\"/>\r\n" + 
+			"    </ObjectPropertyRange>\r\n" +
 			"    <SubDataPropertyOf>\r\n" + 
 			"        <DataProperty IRI=\"#intensity\"/>\r\n" + 
 			"        <DataProperty abbreviatedIRI=\"owl:topDataProperty\"/>\r\n" + 

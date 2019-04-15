@@ -14,7 +14,7 @@ public class KAOSRelationship {
 	}
 
 	public String toString() {
-		String str = "<relationships xsi:type=\"objectiver.model:%s\" ";
+		String str = "\t\t<relationships xsi:type=\"objectiver.model:%s\" ";
 		
 		str = String.format(str, this.type);
 
