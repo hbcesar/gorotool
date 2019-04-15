@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ASCII"?>
+<objectiver.model:KModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:objectiver.model="http://kaos">
+  <rootPackage id="1555347960965:0">
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:37" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.42" refines="//@rootPackage/@entities.1" subGoals="//@rootPackage/@entities.17" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:42" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.16" refines="//@rootPackage/@entities.10" subGoals="//@rootPackage/@entities.11" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:36" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.27" refines="//@rootPackage/@entities.4" subGoals="//@rootPackage/@entities.3 //@rootPackage/@entities.5 //@rootPackage/@entities.13" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:30" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.28" refines="//@rootPackage/@entities.9" subGoals="//@rootPackage/@entities.4" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:32" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.46" refines="//@rootPackage/@entities.5" subGoals="//@rootPackage/@entities.2" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:33" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.2" refines="//@rootPackage/@entities.8" subGoals="//@rootPackage/@entities.0 //@rootPackage/@entities.9" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:39" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.18" refines="//@rootPackage/@entities.6" subGoals="//@rootPackage/@entities.15" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:34" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.31" refines="//@rootPackage/@entities.3" subGoals="//@rootPackage/@entities.16" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:38" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.44" refines="//@rootPackage/@entities.5" subGoals="//@rootPackage/@entities.7" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:41" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.8" refines="//@rootPackage/@entities.10" subGoals="//@rootPackage/@entities.18" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:31" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.40" refines="//@rootPackage/@entities.9" subGoals="//@rootPackage/@entities.1" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:40" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.48" refines="//@rootPackage/@entities.2" subGoals="//@rootPackage/@entities.19" complete="false"/>
+    <relationships xsi:type="objectiver.model:GRefinement" id="1555347960965:35" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.5" refines="//@rootPackage/@entities.0" subGoals="//@rootPackage/@entities.10 //@rootPackage/@entities.6" complete="false"/>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:134" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.53" parent="//@rootPackage/@entities.19">
+      <strengthenings id="1555347960965:138" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.54" operation="//@rootPackage/@entities.26"/>
+    </relationships>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:46" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.50" parent="//@rootPackage/@entities.19">
+      <strengthenings id="1555347960965:140" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.52" operation="//@rootPackage/@entities.27"/>
+    </relationships>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:47" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.10" parent="//@rootPackage/@entities.18">
+      <strengthenings id="1555347960965:118" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.11" operation="//@rootPackage/@entities.25"/>
+    </relationships>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:120" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.36" parent="//@rootPackage/@entities.16">
+      <strengthenings id="1555347960965:119" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.37" operation="//@rootPackage/@entities.21"/>
+    </relationships>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:127" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.13" parent="//@rootPackage/@entities.18">
+      <strengthenings id="1555347960965:129" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.14" operation="//@rootPackage/@entities.28"/>
+    </relationships>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:43" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.33" parent="//@rootPackage/@entities.16">
+      <strengthenings id="1555347960965:132" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.34" operation="//@rootPackage/@entities.20"/>
+    </relationships>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:45" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.20" parent="//@rootPackage/@entities.15">
+      <strengthenings id="1555347960965:137" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.21" operation="//@rootPackage/@entities.22"/>
+    </relationships>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:44" parent="//@rootPackage/@entities.17">
+      <strengthenings id="1555347960965:131" operation="//@rootPackage/@entities.24"/>
+    </relationships>
+    <relationships xsi:type="objectiver.model:Operationalization" id="1555347960965:144" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.23" parent="//@rootPackage/@entities.15">
+      <strengthenings id="1555347960965:142" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.24" operation="//@rootPackage/@entities.23"/>
+    </relationships>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:7" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.1" name="Authorization_Obtained" refinedIn="//@rootPackage/@relationships.5" refinements="//@rootPackage/@relationships.12"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:10" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.39" name="Bundle_booked" refinedIn="//@rootPackage/@relationships.10" refinements="//@rootPackage/@relationships.0"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:4" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.45" name="Budget_hotel_booked" refinedIn="//@rootPackage/@relationships.4" refinements="//@rootPackage/@relationships.11"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:11" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.29" name="Tickets_booked" refinedIn="//@rootPackage/@relationships.2" refinements="//@rootPackage/@relationships.7"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:1" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.26" name="Trip_parts_booked" refinedIn="//@rootPackage/@relationships.3" refinements="//@rootPackage/@relationships.2"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:8" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.38" name="Accommodation_booked" refinedIn="//@rootPackage/@relationships.2" refinements="//@rootPackage/@relationships.4 //@rootPackage/@relationships.8"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:3" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.6" name="Authorization_Signed" refinedIn="//@rootPackage/@relationships.12" refinements="//@rootPackage/@relationships.6"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:6" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.43" name="Conference_hotel_booked" refinedIn="//@rootPackage/@relationships.8"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:5" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.0" name="Travel_Organized" refinements="//@rootPackage/@relationships.5"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:2" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.3" name="Trip_Booked" refinedIn="//@rootPackage/@relationships.5" refinements="//@rootPackage/@relationships.3 //@rootPackage/@relationships.10"/>
+    <entities xsi:type="objectiver.model:Goal" id="1555347960965:9" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.4" name="Request_Prepared" refinedIn="//@rootPackage/@relationships.12" refinements="//@rootPackage/@relationships.1 //@rootPackage/@relationships.9"/>
+    <entities xsi:type="objectiver.model:SoftGoal" id="1555347960965:13" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.15" name="No_erros" refinedIn="//@rootPackage/@relationships.1"/>
+    <entities xsi:type="objectiver.model:SoftGoal" id="1555347960965:14" name="Minimal_own_payments"/>
+    <entities xsi:type="objectiver.model:SoftGoal" id="1555347960965:15" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.25" name="Quick_Booking" refinedIn="//@rootPackage/@relationships.2"/>
+    <entities xsi:type="objectiver.model:SoftGoal" id="1555347960965:12" name="Comfort"/>
+    <entities xsi:type="objectiver.model:Requirement" id="1555347960965:17" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.17" name="Authorization_Signed_Requirement" refinedIn="//@rootPackage/@relationships.6" Operationalizations="//@rootPackage/@relationships.19 //@rootPackage/@relationships.21"/>
+    <entities xsi:type="objectiver.model:Requirement" id="1555347960965:16" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.30" name="Tickets_booked_Requirement" refinedIn="//@rootPackage/@relationships.7" Operationalizations="//@rootPackage/@relationships.16 //@rootPackage/@relationships.18"/>
+    <entities xsi:type="objectiver.model:Requirement" id="1555347960965:19" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.41" name="Bundle_booked_Requirement" refinedIn="//@rootPackage/@relationships.0" Operationalizations="//@rootPackage/@relationships.20"/>
+    <entities xsi:type="objectiver.model:Requirement" id="1555347960965:20" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.7" name="Request_Prepared_Requirement" refinedIn="//@rootPackage/@relationships.9" Operationalizations="//@rootPackage/@relationships.15 //@rootPackage/@relationships.17"/>
+    <entities xsi:type="objectiver.model:Requirement" id="1555347960965:18" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.47" name="Budget_hotel_booked_Requirement" refinedIn="//@rootPackage/@relationships.11" Operationalizations="//@rootPackage/@relationships.13 //@rootPackage/@relationships.14"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:28" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.32" name="Agency_buys_tickets" strengthenedIn="//@rootPackage/@relationships.18/@strengthenings.0"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:22" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.35" name="Self-book_tickets" strengthenedIn="//@rootPackage/@relationships.16/@strengthenings.0"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:27" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.19" name="Supervisor_authorizes" strengthenedIn="//@rootPackage/@relationships.19/@strengthenings.0"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:25" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.22" name="Head-of-dept_authorizes" strengthenedIn="//@rootPackage/@relationships.21/@strengthenings.0"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:29" name="Book_bundle" strengthenedIn="//@rootPackage/@relationships.20/@strengthenings.0"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:23" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.9" name="Fill_in_online_form" strengthenedIn="//@rootPackage/@relationships.15/@strengthenings.0"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:24" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.49" name="Buy_through_booking.com" strengthenedIn="//@rootPackage/@relationships.13/@strengthenings.0"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:21" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.51" name="Buy_through_hotel_website" strengthenedIn="//@rootPackage/@relationships.14/@strengthenings.0"/>
+    <entities xsi:type="objectiver.model:Operation" id="1555347960965:26" graphicalConcept="//@rootPackage/@diagrams.0/@graphConcepts.12" name="Fill_in_paper_form" strengthenedIn="//@rootPackage/@relationships.17/@strengthenings.0"/>
+    <diagrams id="1555347960965:126" name="KAOSModel" width="1476" height="1600" scale="100">
+      <graphConcepts id="1555347960965:336" modelConcept="//@rootPackage/@entities.8" width="130" height="21" x="656" y="23"/>
+      <graphConcepts id="1555347960965:349" modelConcept="//@rootPackage/@entities.0" width="165" height="21" x="488" y="165"/>
+      <graphConcepts id="1555347960965:448" modelConcept="//@rootPackage/@relationships.5" width="15" height="15" hasLabel="false" andNodeX="743" andNodeY="80"/>
+      <graphConcepts id="1555347960965:393" modelConcept="//@rootPackage/@entities.9" width="98" height="21" x="974" y="153"/>
+      <graphConcepts id="1555347960965:416" modelConcept="//@rootPackage/@entities.10" width="132" height="21" x="412" y="295"/>
+      <graphConcepts id="1555347960965:94" modelConcept="//@rootPackage/@relationships.12" width="15" height="15" hasLabel="false" andNodeX="574" andNodeY="224"/>
+      <graphConcepts id="1555347960965:102" modelConcept="//@rootPackage/@entities.6" width="152" height="21" x="638" y="291"/>
+      <graphConcepts id="1555347960965:49" modelConcept="//@rootPackage/@entities.18" width="205" height="36" x="315" y="376"/>
+      <graphConcepts id="1555347960965:73" modelConcept="//@rootPackage/@relationships.9" width="15" height="15" hasLabel="false" andNodeX="439" andNodeY="343"/>
+      <graphConcepts id="1555347960965:193" modelConcept="//@rootPackage/@entities.25" width="138" height="21" x="275" y="506"/>
+      <graphConcepts id="1555347960965:223" modelConcept="//@rootPackage/@relationships.15" width="15" height="15" hasLabel="false" andNodeX="370" andNodeY="449"/>
+      <graphConcepts id="1555347960965:168" modelConcept="//@rootPackage/@relationships.15/@strengthenings.0" hasLabel="false"/>
+      <graphConcepts id="1555347960965:155" modelConcept="//@rootPackage/@entities.28" width="135" height="21" x="424" y="506"/>
+      <graphConcepts id="1555347960965:250" modelConcept="//@rootPackage/@relationships.17" width="15" height="15" hasLabel="false" andNodeX="444" andNodeY="444"/>
+      <graphConcepts id="1555347960965:371" modelConcept="//@rootPackage/@relationships.17/@strengthenings.0" hasLabel="false"/>
+      <graphConcepts id="1555347960965:354" modelConcept="//@rootPackage/@entities.11" width="76" height="21" x="203" y="298"/>
+      <graphConcepts id="1555347960965:359" modelConcept="//@rootPackage/@relationships.1" width="15" height="15" hasLabel="false" andNodeX="348" andNodeY="299"/>
+      <graphConcepts id="1555347960965:319" modelConcept="//@rootPackage/@entities.15" width="207" height="36" x="618" y="372"/>
+      <graphConcepts id="1555347960965:325" modelConcept="//@rootPackage/@relationships.6" width="15" height="15" hasLabel="false" andNodeX="710" andNodeY="343"/>
+      <graphConcepts id="1555347960965:436" modelConcept="//@rootPackage/@entities.22" width="155" height="21" x="587" y="481"/>
+      <graphConcepts id="1555347960965:442" modelConcept="//@rootPackage/@relationships.19" width="15" height="15" hasLabel="false" andNodeX="683" andNodeY="438"/>
+      <graphConcepts id="1555347960965:419" modelConcept="//@rootPackage/@relationships.19/@strengthenings.0" hasLabel="false"/>
+      <graphConcepts id="1555347960965:386" modelConcept="//@rootPackage/@entities.23" width="168" height="21" x="747" y="479"/>
+      <graphConcepts id="1555347960965:361" modelConcept="//@rootPackage/@relationships.21" width="15" height="15" hasLabel="false" andNodeX="768" andNodeY="432"/>
+      <graphConcepts id="1555347960965:288" modelConcept="//@rootPackage/@relationships.21/@strengthenings.0" hasLabel="false"/>
+      <graphConcepts id="1555347960965:283" modelConcept="//@rootPackage/@entities.13" width="112" height="21" x="793" y="309"/>
+      <graphConcepts id="1555347960965:280" modelConcept="//@rootPackage/@entities.4" width="132" height="21" x="861" y="213"/>
+      <graphConcepts id="1555347960965:277" modelConcept="//@rootPackage/@relationships.2" width="15" height="15" hasLabel="false" andNodeX="954" andNodeY="263"/>
+      <graphConcepts id="1555347960965:318" modelConcept="//@rootPackage/@relationships.3" width="15" height="15" hasLabel="false" andNodeX="963" andNodeY="189"/>
+      <graphConcepts id="1555347960965:306" modelConcept="//@rootPackage/@entities.3" width="115" height="21" x="933" y="336"/>
+      <graphConcepts id="1555347960965:297" modelConcept="//@rootPackage/@entities.16" width="200" height="21" x="890" y="417"/>
+      <graphConcepts id="1555347960965:293" modelConcept="//@rootPackage/@relationships.7" width="15" height="15" hasLabel="false" andNodeX="983" andNodeY="387"/>
+      <graphConcepts id="1555347960965:421" modelConcept="//@rootPackage/@entities.20" width="148" height="21" x="826" y="549"/>
+      <graphConcepts id="1555347960965:413" modelConcept="//@rootPackage/@relationships.18" width="15" height="15" hasLabel="false" andNodeX="947" andNodeY="471"/>
+      <graphConcepts id="1555347960965:438" modelConcept="//@rootPackage/@relationships.18/@strengthenings.0" hasLabel="false"/>
+      <graphConcepts id="1555347960965:464" modelConcept="//@rootPackage/@entities.21" width="125" height="21" x="992" y="551"/>
+      <graphConcepts id="1555347960965:312" modelConcept="//@rootPackage/@relationships.16" width="15" height="15" hasLabel="false" andNodeX="1008" andNodeY="474"/>
+      <graphConcepts id="1555347960965:258" modelConcept="//@rootPackage/@relationships.16/@strengthenings.0" hasLabel="false"/>
+      <graphConcepts id="1555347960965:333" modelConcept="//@rootPackage/@entities.5" width="172" height="21" x="1085" y="299"/>
+      <graphConcepts id="1555347960965:357" modelConcept="//@rootPackage/@entities.1" width="116" height="21" x="1256" y="212"/>
+      <graphConcepts id="1555347960965:370" modelConcept="//@rootPackage/@relationships.10" width="15" height="15" hasLabel="false" andNodeX="1145" andNodeY="181"/>
+      <graphConcepts id="1555347960965:175" modelConcept="//@rootPackage/@entities.17" width="200" height="21" x="1280" y="283"/>
+      <graphConcepts id="1555347960965:180" modelConcept="//@rootPackage/@relationships.0" width="15" height="15" hasLabel="false" andNodeX="1343" andNodeY="255"/>
+      <graphConcepts id="1555347960965:219" modelConcept="//@rootPackage/@entities.7" width="180" height="21" x="1107" y="412"/>
+      <graphConcepts id="1555347960965:241" modelConcept="//@rootPackage/@relationships.8" width="15" height="15" hasLabel="false" andNodeX="1176" andNodeY="356"/>
+      <graphConcepts id="1555347960965:67" modelConcept="//@rootPackage/@entities.2" width="153" height="21" x="1363" y="420"/>
+      <graphConcepts id="1555347960965:77" modelConcept="//@rootPackage/@relationships.4" width="15" height="15" hasLabel="false" andNodeX="1268" andNodeY="349"/>
+      <graphConcepts id="1555347960965:105" modelConcept="//@rootPackage/@entities.19" width="207" height="36" x="1310" y="511"/>
+      <graphConcepts id="1555347960965:430" modelConcept="//@rootPackage/@relationships.11" width="15" height="15" hasLabel="false" andNodeX="1419" andNodeY="474"/>
+      <graphConcepts id="1555347960965:395" modelConcept="//@rootPackage/@entities.26" width="181" height="21" x="1364" y="669"/>
+      <graphConcepts id="1555347960965:473" modelConcept="//@rootPackage/@relationships.14" width="15" height="15" hasLabel="false" andNodeX="1353" andNodeY="575"/>
+      <graphConcepts id="1555347960965:441" modelConcept="//@rootPackage/@entities.27" width="187" height="21" x="1180" y="650"/>
+      <graphConcepts id="1555347960965:338" modelConcept="//@rootPackage/@relationships.14/@strengthenings.0" hasLabel="false"/>
+      <graphConcepts id="1555347960965:374" modelConcept="//@rootPackage/@relationships.13" width="15" height="15" hasLabel="false" andNodeX="1423" andNodeY="586"/>
+      <graphConcepts id="1555347960965:324" modelConcept="//@rootPackage/@relationships.13/@strengthenings.0" hasLabel="false"/>
+    </diagrams>
+  </rootPackage>
+</objectiver.model:KModel>
