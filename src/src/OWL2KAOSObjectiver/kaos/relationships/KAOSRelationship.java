@@ -1,7 +1,5 @@
 package OWL2KAOSObjectiver.kaos.relationships;
 
-import java.util.ArrayList;
-
 public class KAOSRelationship {
 	private String type;
 	

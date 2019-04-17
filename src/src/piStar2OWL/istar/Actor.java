@@ -29,4 +29,8 @@ public class Actor {
 	public String getType() {
 		return this.type;
 	}
+	
+	public String getID() {
+		return this.id;
+	}
 }

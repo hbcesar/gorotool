@@ -45,7 +45,6 @@ public class iStarConverter {
 			
 			while (input.hasNextLine()) {
 	            str += input.nextLine();
-	            
 	        }
 			
 	        input.close();
@@ -77,7 +76,11 @@ public class iStarConverter {
 					String type = node.getString("type");
 					String id = node.getString("id");
 					String name = (node.has("text"))? node.getString("text") : type.replace("istar.", "") + " " + j;  
-					iStarElm el = new iStarElm(type, id, name, actorID);
+					iStarElm el = null;
+					if(type.equals("istar.Goal")) el = new Goal(type, id, name, actorID);
+					else if(type.equals("istar.Quality")) el = new Quality(type, id, name, actorID);
+					else if(type.equals("istar.Resource")) el = new Resource(type, id, name, actorID);
+					else if(type.equals("istar.Task")) el = new Task(type, id, name, actorID);
 					actor.addElement(el);
 				} else {
 					System.out.println("[ERROR] There is an element with a missing field.");
@@ -87,29 +90,18 @@ public class iStarConverter {
 			actors.add(actor);
 		}
 		
-		//Dependencies
+		//As GORO does not has dependencies, saves all iStar's dependencies in the log file
 		res = obj.getJSONArray("dependencies");
 		String output = "";
 		if(res.length() > 0) output = "GORO does not support iStar dependencies. The following elements were ignored:\n";
-		for(int i = 0; i < res.length(); i++) { //for each dependency
+		for(int i = 0; i < res.length(); i++) { 
 			JSONObject node = res.getJSONObject(i);
 			
-//			if(node.has("type") && node.has("source") && node.has("target") && node.has("id")) {
-				
-//				String dependumID = node.getString("id");
-//				
-				if(node.has("type")) { //&& node.has("id")) {
-//
-					String type = node.getString("type");
-//					String id = node.getString("id");
-					String name = (node.has("text"))? node.getString("text") : type.replace("istar.", "") + " " + i;  
-//					iStarElm el = new iStarElm(type, id, name, dependumID);
-//					dependencies.add(el);
-//				} else {
-//					System.out.println("[ERROR] There is a dependency with a missing field");
-					output += name + "\n";
-				}
-//			}
+			if(node.has("type")) {
+				String type = node.getString("type");
+				String name = (node.has("text"))? node.getString("text") : type.replace("istar.", "") + " " + i;  
+				output += name + "\n";
+			}
 		}
 		if(res.length() > 0) logger.warn(output);
 		
@@ -124,12 +116,13 @@ public class iStarConverter {
 					String target = node.getString("source");
 					String source = node.getString("target");
 					
-					iStarLink d;
+					iStarLink d = null;
 					if(node.has("label")) {
-						d = new iStarLink(source, target, type, node.getString("label"));
-					} else {
-						d = new iStarLink(source, target, type);
-					}
+						d = new ContributionLink(source, target, type, node.getString("label"));
+					} else if(type.equals("istar.AndRefinementLink")) d = new AndRefinementLink(source, target, type);
+					else if(type.equals("istar.OrRefinementLink")) d = new OrRefinementLink(source, target, type);
+					else if(type.equals("istar.QualificationLink")) d = new QualificationLink(source, target, type);
+					else if(type.equals("istar.NeededByLink")) d = new NeededByLink(source, target, type);
 					
 					links.add(d);
 				} 
@@ -137,12 +130,47 @@ public class iStarConverter {
 		}
 		
 		//sets the actual source and target for each link 
+		ArrayList<iStarLink> newlinks = new ArrayList<iStarLink>();
 		for(int i = 0; i < links.size(); i++) {
 			iStarLink l = links.get(i);
+			iStarElm source = lookupByID(l.getSourceID());
+			iStarElm target = lookupByID(l.getTargetID());
 			
-			l.setSource(lookupByID(l.getSourceID()));
-			l.setTarget(lookupByID(l.getTargetID()));
+			//If a goal is refined into a task, creates an intermediary one that connects each individual task to that goal
+			if(source.getType().equals("istar.Goal") && target.getType().equals("istar.Task")) {
+				//creates the intermediary goal
+				iStarElm interGoal = new Goal("istar.Goal", "CREATED0" + i, source.getName() + " operationalized in " + target.getName(), source.getActorID());
+				
+				//creates the new link that connects the intermediary goal to the task
+				iStarLink G2t;
+				if(l.getType().equals("istar.AndRefinementLink")) {
+					G2t = new AndRefinementLink("CREATED0" + i, l.getTargetID(), "istar.AndRefinementLink");
+				} else {
+					G2t = new OrRefinementLink("CREATED0" + i, l.getTargetID(), "istar.OrRefinementLink");
+				}
+				
+				//sets the new link source and target
+				G2t.setSource(interGoal);
+				G2t.setTarget(target);
+				
+				//set the first link (the one that was connecting the first goal to the task)
+				//now it connects to the new intermediary goal
+				l.setSource(source);
+				l.setTarget(interGoal);
+				
+				//adds the new links to the list
+				newlinks.add(G2t);
+				
+				//adds the new element to the list
+				Actor a = getActor(source.getActorID());
+				a.addElement(interGoal);
+			} else {
+				//if its not a goal to task refinement, sets the actual source and target
+				l.setSource(source);
+				l.setTarget(target);
+			}
 		}
+		links.addAll(newlinks);
 		
 		System.out.println("[INFO] PiStar file successfully read");
 	}
@@ -152,6 +180,7 @@ public class iStarConverter {
 		
 		String str = "";
 		
+		//converts the nodes
 		for(int i = 0; i < this.actors.size(); i++) {
 			Actor actor = this.actors.get(i);
 			ArrayList<iStarElm> nodes = actor.getNodes();
@@ -162,15 +191,11 @@ public class iStarConverter {
 			}
 		}
 		
+		//converts the links
 		for(int i = 0; i < this.links.size(); i++) {
 			str += this.links.get(i).toString();
 			str += "\n";
 		}
-		
-//		for(int i = 0; i < this.dependencies.size(); i++) {
-//			str += this.dependencies.get(i).toString();
-//			str += "\n";
-//		}
 		
 		//extract the string into a OWL file
 		PrintWriter writer;
@@ -201,6 +226,7 @@ public class iStarConverter {
 
 	}
 	
+	//returns an element given its ID
 	public iStarElm lookupByID(String id) {
 		for(int i = 0; i < this.actors.size(); i++){
 			Actor actor = this.actors.get(i);
@@ -222,6 +248,18 @@ public class iStarConverter {
 		System.out.println("[ERROR] inconsistency in PiStar file. The follow ID do not exist: " + id);
 		
 		System.exit(0);
+		return null;
+	}
+	
+	//returns an actor element given its ID
+	public Actor getActor(String id) {
+		for(int i = 0; i < this.actors.size(); i++){
+			Actor actor = this.actors.get(i);
+			if(actor.getID().equals(id)) {
+				return actor;
+			}
+		}
+		
 		return null;
 	}
 }

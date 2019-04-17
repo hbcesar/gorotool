@@ -15,8 +15,8 @@ public class OWLReader {
 	private ArrayList<GOROElement> elements = new ArrayList<GOROElement>();
 	private ArrayList<GORORelation> links = new ArrayList<GORORelation>();
 	
-	
 	public void read(String filePath) {
+		//the XML Parser
 		File xmlFile = new File(filePath);
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
@@ -26,8 +26,8 @@ public class OWLReader {
 			Document doc = builder.parse(xmlFile);
 			doc.getDocumentElement().normalize();
 			
+			//Get the OWL nodes (elements)
 			NodeList nList = doc.getElementsByTagName("ClassAssertion");
-			
 			for (int i = 0; i < nList.getLength(); i++) {
 
 				Node nNode = nList.item(i);
@@ -48,8 +48,8 @@ public class OWLReader {
 				}
 			}
 			
+			//Get the relations
 			NodeList linkList = doc.getElementsByTagName("ObjectPropertyAssertion");
-			
 			for (int i = 0; i < linkList.getLength(); i++) {
 
 				Node nNode = linkList.item(i);
@@ -68,8 +68,6 @@ public class OWLReader {
 					
 					GORORelation g = new GORORelation(class_iri, source_iri, target_iri);
 					
-//					System.out.println("Relation: " + class_iri + "\nSource: " + source_iri + "\nTarget: " + target_iri);
-					
 					this.links.add(g);
 				}
 			}
@@ -77,7 +75,6 @@ public class OWLReader {
 			System.out.println("[INFO] OWL File successfully loaded.");
 			
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
