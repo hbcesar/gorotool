@@ -450,13 +450,6 @@
 		<NamedIndividual IRI="#Conference_hotel_booked"/>
 	</ClassAssertion>
 	<Declaration>
-		<NamedIndividual IRI="#Budget_hotel_booked"/>
-	</Declaration>
-	<ClassAssertion>
-		<Class IRI="#Functional_Requirement_Hardgoal"/>
-		<NamedIndividual IRI="#Budget_hotel_booked"/>
-	</ClassAssertion>
-	<Declaration>
 		<NamedIndividual IRI="#Buy_through_booking.com"/>
 	</Declaration>
 	<ClassAssertion>
@@ -476,6 +469,69 @@
 	<ClassAssertion>
 		<Class IRI="#Resource"/>
 		<NamedIndividual IRI="#Credit_card"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Request_Prepared_operationalized_in_Fill_in_paper_form"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Request_Prepared_operationalized_in_Fill_in_paper_form"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Request_Prepared_operationalized_in_Fill_in_online_form"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Request_Prepared_operationalized_in_Fill_in_online_form"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Authorization_Signed_operationalized_in_Supervisor_authorizes"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Authorization_Signed_operationalized_in_Supervisor_authorizes"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Authorization_Signed_operationalized_in_Head-of-dept_authorizes"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Authorization_Signed_operationalized_in_Head-of-dept_authorizes"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Bundle_booked_operationalized_in_Book_bundle"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Bundle_booked_operationalized_in_Book_bundle"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Tickets_booked_operationalized_in_Agency_buys_tickets"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Tickets_booked_operationalized_in_Agency_buys_tickets"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Tickets_booked_operationalized_in_Self-book_tickets"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Tickets_booked_operationalized_in_Self-book_tickets"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Accommodation_booked_operationalized_in_Buy_through_booking.com"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Accommodation_booked_operationalized_in_Buy_through_booking.com"/>
+	</ClassAssertion>
+	<Declaration>
+		<NamedIndividual IRI="#Accommodation_booked_operationalized_in_Buy_through_hotel_website"/>
+	</Declaration>
+	<ClassAssertion>
+		<Class IRI="#Functional_Requirement_Hardgoal"/>
+		<NamedIndividual IRI="#Accommodation_booked_operationalized_in_Buy_through_hotel_website"/>
 	</ClassAssertion>
 	<Declaration>
 		<NamedIndividual IRI="#Proccess_Form"/>
@@ -523,9 +579,9 @@
 		<NamedIndividual IRI="#Trip_Booked"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Fill_in_paper_form"/>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
 		<NamedIndividual IRI="#Request_Prepared"/>
+		<NamedIndividual IRI="#Request_Prepared_operationalized_in_Fill_in_paper_form"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
 		<ObjectProperty IRI="#AND_Goal-Based_Requirement_Artifact"/>
@@ -538,9 +594,9 @@
 		<NamedIndividual IRI="#Authorization_Signed"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Fill_in_online_form"/>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
 		<NamedIndividual IRI="#Request_Prepared"/>
+		<NamedIndividual IRI="#Request_Prepared_operationalized_in_Fill_in_online_form"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
 		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
@@ -548,19 +604,19 @@
 		<NamedIndividual IRI="#No_erros"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Supervisor_authorizes"/>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
 		<NamedIndividual IRI="#Authorization_Signed"/>
+		<NamedIndividual IRI="#Authorization_Signed_operationalized_in_Supervisor_authorizes"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Head-of-dept_authorizes"/>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
 		<NamedIndividual IRI="#Authorization_Signed"/>
+		<NamedIndividual IRI="#Authorization_Signed_operationalized_in_Head-of-dept_authorizes"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Book_bundle"/>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
 		<NamedIndividual IRI="#Bundle_booked"/>
+		<NamedIndividual IRI="#Bundle_booked_operationalized_in_Book_bundle"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
 		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
@@ -684,22 +740,22 @@
 		<NamedIndividual IRI="#Accommodation_booked"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Agency_buys_tickets"/>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
 		<NamedIndividual IRI="#Tickets_booked"/>
+		<NamedIndividual IRI="#Tickets_booked_operationalized_in_Agency_buys_tickets"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Self-book_tickets"/>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
 		<NamedIndividual IRI="#Tickets_booked"/>
+		<NamedIndividual IRI="#Tickets_booked_operationalized_in_Self-book_tickets"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<ObjectProperty IRI="#AND_Complex_Task_Decomposition"/>
 		<NamedIndividual IRI="#Self-book_tickets"/>
 		<NamedIndividual IRI="#Buy_Tickets"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<ObjectProperty IRI="#AND_Complex_Task_Decomposition"/>
 		<NamedIndividual IRI="#Self-book_tickets"/>
 		<NamedIndividual IRI="#Pay_for_tickets"/>
 	</ObjectPropertyAssertion>
@@ -828,21 +884,6 @@
 		<NamedIndividual IRI="#Accommodation_booked"/>
 		<NamedIndividual IRI="#Conference_hotel_booked"/>
 	</ObjectPropertyAssertion>
-	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
-		<NamedIndividual IRI="#Accommodation_booked"/>
-		<NamedIndividual IRI="#Budget_hotel_booked"/>
-	</ObjectPropertyAssertion>
-	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Buy_through_booking.com"/>
-		<NamedIndividual IRI="#Budget_hotel_booked"/>
-	</ObjectPropertyAssertion>
-	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#intends_to_operationalize"/>
-		<NamedIndividual IRI="#Buy_through_hotel_website"/>
-		<NamedIndividual IRI="#Budget_hotel_booked"/>
-	</ObjectPropertyAssertion>
 	<ClassAssertion>
 		<Class IRI="#Contribution"/>
 		<NamedIndividual IRI="#Minimal_own_payments_to_Book_bundle_contribution"/>
@@ -868,17 +909,17 @@
 	</DataPropertyAssertion>
 
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<ObjectProperty IRI="#AND_Complex_Task_Decomposition"/>
 		<NamedIndividual IRI="#Proccess_Form"/>
 		<NamedIndividual IRI="#Validate_Details"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<ObjectProperty IRI="#AND_Complex_Task_Decomposition"/>
 		<NamedIndividual IRI="#Proccess_Form"/>
 		<NamedIndividual IRI="#Request_Autorization"/>
 	</ObjectPropertyAssertion>
 	<ObjectPropertyAssertion>
-		<ObjectProperty IRI="#Complex_Task_Decomposition"/>
+		<ObjectProperty IRI="#AND_Complex_Task_Decomposition"/>
 		<NamedIndividual IRI="#Proccess_Form"/>
 		<NamedIndividual IRI="#Notify_Applicant"/>
 	</ObjectPropertyAssertion>
@@ -886,5 +927,60 @@
 		<ObjectProperty IRI="#requires"/>
 		<NamedIndividual IRI="#Pay_for_tickets"/>
 		<NamedIndividual IRI="#Credit_card"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Accommodation_booked"/>
+		<NamedIndividual IRI="#Accommodation_booked_operationalized_in_Buy_through_booking.com"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#OR_Goal-Based_Requirement_Artifact"/>
+		<NamedIndividual IRI="#Accommodation_booked"/>
+		<NamedIndividual IRI="#Accommodation_booked_operationalized_in_Buy_through_hotel_website"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Fill_in_paper_form"/>
+		<NamedIndividual IRI="#Request_Prepared_operationalized_in_Fill_in_paper_form"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Fill_in_online_form"/>
+		<NamedIndividual IRI="#Request_Prepared_operationalized_in_Fill_in_online_form"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Supervisor_authorizes"/>
+		<NamedIndividual IRI="#Authorization_Signed_operationalized_in_Supervisor_authorizes"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Head-of-dept_authorizes"/>
+		<NamedIndividual IRI="#Authorization_Signed_operationalized_in_Head-of-dept_authorizes"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Book_bundle"/>
+		<NamedIndividual IRI="#Bundle_booked_operationalized_in_Book_bundle"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Agency_buys_tickets"/>
+		<NamedIndividual IRI="#Tickets_booked_operationalized_in_Agency_buys_tickets"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Self-book_tickets"/>
+		<NamedIndividual IRI="#Tickets_booked_operationalized_in_Self-book_tickets"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Buy_through_booking.com"/>
+		<NamedIndividual IRI="#Accommodation_booked_operationalized_in_Buy_through_booking.com"/>
+	</ObjectPropertyAssertion>
+	<ObjectPropertyAssertion>
+		<ObjectProperty IRI="#intends_to_operationalize"/>
+		<NamedIndividual IRI="#Buy_through_hotel_website"/>
+		<NamedIndividual IRI="#Accommodation_booked_operationalized_in_Buy_through_hotel_website"/>
 	</ObjectPropertyAssertion>
 </Ontology>
